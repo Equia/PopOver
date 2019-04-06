@@ -8,22 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		413600F0224FEC3700AB4983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413600EF224FEC3700AB4983 /* AppDelegate.swift */; };
-		413600F2224FEC3700AB4983 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413600F1224FEC3700AB4983 /* ViewController.swift */; };
+		413600F2224FEC3700AB4983 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413600F1224FEC3700AB4983 /* LoginController.swift */; };
 		413600F5224FEC3800AB4983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413600F3224FEC3800AB4983 /* Main.storyboard */; };
 		413600F7224FEC3A00AB4983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413600F6224FEC3A00AB4983 /* Assets.xcassets */; };
 		413600FA224FEC3A00AB4983 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413600F8224FEC3A00AB4983 /* LaunchScreen.storyboard */; };
-		41360102224FECC200AB4983 /* CHRIS CANT GIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41360101224FECC200AB4983 /* CHRIS CANT GIT.swift */; };
+		415D37022256CBCB003AFDC7 /* EmailSentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D37012256CBCB003AFDC7 /* EmailSentController.swift */; };
+		417255AA2253E96B00DCE131 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417255A92253E96B00DCE131 /* Constants.swift */; };
+		417255AD22540E4500DCE131 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417255AC22540E4500DCE131 /* Extensions.swift */; };
+		417E953B22557ADE00337000 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E953A22557ADE00337000 /* SignUpController.swift */; };
+		417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E953C2255A05F00337000 /* ForgotPasswordController.swift */; };
+		D1D17EBBDC8F49584F3E7FC9 /* Pods_PopOver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F727FF4512DE52FD9DDFB25 /* Pods_PopOver.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F727FF4512DE52FD9DDFB25 /* Pods_PopOver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopOver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		413600EC224FEC3700AB4983 /* PopOver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopOver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		413600EF224FEC3700AB4983 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		413600F1224FEC3700AB4983 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		413600F1224FEC3700AB4983 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		413600F4224FEC3800AB4983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		413600F6224FEC3A00AB4983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413600F9224FEC3A00AB4983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413600FB224FEC3A00AB4983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41360101224FECC200AB4983 /* CHRIS CANT GIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CHRIS CANT GIT.swift"; sourceTree = "<group>"; };
+		415D37012256CBCB003AFDC7 /* EmailSentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSentController.swift; sourceTree = "<group>"; };
+		417255A92253E96B00DCE131 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		417255AC22540E4500DCE131 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		417E953A22557ADE00337000 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		417E953C2255A05F00337000 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		8811866F7B1A31DD254111ED /* Pods-PopOver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopOver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopOver/Pods-PopOver.debug.xcconfig"; sourceTree = "<group>"; };
+		8BCF751D70AD5C8B7CD079D4 /* Pods-PopOver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopOver.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopOver/Pods-PopOver.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D17EBBDC8F49584F3E7FC9 /* Pods_PopOver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +55,8 @@
 			children = (
 				413600EE224FEC3700AB4983 /* PopOver */,
 				413600ED224FEC3700AB4983 /* Products */,
+				BB4CE21A2574585745CF9946 /* Frameworks */,
+				4389906AC575122A845FA083 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +72,43 @@
 			isa = PBXGroup;
 			children = (
 				413600EF224FEC3700AB4983 /* AppDelegate.swift */,
-				41360101224FECC200AB4983 /* CHRIS CANT GIT.swift */,
-				413600F1224FEC3700AB4983 /* ViewController.swift */,
+				415D37012256CBCB003AFDC7 /* EmailSentController.swift */,
+				417E953C2255A05F00337000 /* ForgotPasswordController.swift */,
+				413600F1224FEC3700AB4983 /* LoginController.swift */,
+				417E953A22557ADE00337000 /* SignUpController.swift */,
 				413600F3224FEC3800AB4983 /* Main.storyboard */,
 				413600F6224FEC3A00AB4983 /* Assets.xcassets */,
 				413600F8224FEC3A00AB4983 /* LaunchScreen.storyboard */,
 				413600FB224FEC3A00AB4983 /* Info.plist */,
+				417255AB2253E9E900DCE131 /* Utils */,
 			);
 			path = PopOver;
+			sourceTree = "<group>";
+		};
+		417255AB2253E9E900DCE131 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				417255A92253E96B00DCE131 /* Constants.swift */,
+				417255AC22540E4500DCE131 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4389906AC575122A845FA083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8811866F7B1A31DD254111ED /* Pods-PopOver.debug.xcconfig */,
+				8BCF751D70AD5C8B7CD079D4 /* Pods-PopOver.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB4CE21A2574585745CF9946 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F727FF4512DE52FD9DDFB25 /* Pods_PopOver.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +118,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413600FE224FEC3A00AB4983 /* Build configuration list for PBXNativeTarget "PopOver" */;
 			buildPhases = (
+				6494102D71B9194C1FB71E09 /* [CP] Check Pods Manifest.lock */,
 				413600E8224FEC3700AB4983 /* Sources */,
 				413600E9224FEC3700AB4983 /* Frameworks */,
 				413600EA224FEC3700AB4983 /* Resources */,
@@ -133,14 +178,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6494102D71B9194C1FB71E09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PopOver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		413600E8224FEC3700AB4983 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41360102224FECC200AB4983 /* CHRIS CANT GIT.swift in Sources */,
-				413600F2224FEC3700AB4983 /* ViewController.swift in Sources */,
+				417E953B22557ADE00337000 /* SignUpController.swift in Sources */,
+				417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */,
+				415D37022256CBCB003AFDC7 /* EmailSentController.swift in Sources */,
+				417255AA2253E96B00DCE131 /* Constants.swift in Sources */,
+				413600F2224FEC3700AB4983 /* LoginController.swift in Sources */,
 				413600F0224FEC3700AB4983 /* AppDelegate.swift in Sources */,
+				417255AD22540E4500DCE131 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +358,7 @@
 		};
 		413600FF224FEC3A00AB4983 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8811866F7B1A31DD254111ED /* Pods-PopOver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +376,7 @@
 		};
 		41360100224FEC3A00AB4983 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BCF751D70AD5C8B7CD079D4 /* Pods-PopOver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
