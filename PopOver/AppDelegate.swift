@@ -7,22 +7,25 @@
 //
 
 import UIKit
+import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    let locationManager = CLLocationManager()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
-        let loginController = LoginController()
-        let controller = UINavigationController(rootViewController: loginController)
+    
+        let controller = UINavigationController(rootViewController: Tutorial()) //sets ViewController on load
         window?.rootViewController = controller
+        
+        locationManager.requestAlwaysAuthorization()
         return true
     }
 

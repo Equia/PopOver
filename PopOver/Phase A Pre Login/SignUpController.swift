@@ -9,20 +9,39 @@
 import Foundation
 import UIKit
 
-public var emailSentTo = ""
+public var emailSentTo: UILabel = {
+    var text = UILabel()
+    text.text = ""
+    return text
+}()
 
 class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //sets background color
         view.backgroundColor = THEME_MAIN
+        
+        //hides navigation bar
         navigationController?.isNavigationBarHidden = true
+        
+        //loads items onto the screen
         placeItems()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    //POPOVER ICON
+    //1. Builds icon
+    let popOverIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = #imageLiteral(resourceName: "whitepng") //sets image for icon
+        icon.contentMode = UIView.ContentMode.scaleAspectFit //maintains aspect ratio of image
+        return icon
+    }()
     
     //USERNAME TEXT ENTRY
     //1. Builds field
@@ -190,7 +209,13 @@ class SignUpController: UIViewController {
         placeConfirmPasswordTextField()
         placeRegisterButton()
         placeBackToLoginButton()
+        placeIcon()
         
+    }
+    
+    fileprivate func placeIcon() {
+        view.addSubview(popOverIcon)
+        popOverIcon.anchors(top: nil, topPad: 0, bottom: userTextField.topAnchor, bottomPad: 40, left: userTextField.leftAnchor, leftPad: 0, right: userTextField.rightAnchor, rightPad: 0, height: 0, width: 0)
     }
     
     fileprivate func placeUserTextField() {
@@ -243,11 +268,10 @@ class SignUpController: UIViewController {
         //Change push location
         let controller = EmailSentController()
         
-        emailSentTo = userTextField.text ?? "youremail@gmail.com"
+        emailSentTo.text = userTextField.text ?? "youremail@gmail.com"
+        controller.stringPassed = userTextField.text ?? "youremail@gmail.com"
         
         //Pushes to view controller
         navigationController?.pushViewController(controller, animated: false)
-        
-        
     }
 }

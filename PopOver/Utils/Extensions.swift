@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
 
 extension UITextField {
     func setBottomBorder(backgroundColor: UIColor, borderColor: UIColor) {
@@ -59,5 +61,46 @@ extension UIView {
         
         if height > 0 { self.heightAnchor.constraint(equalToConstant: height).isActive = true}
         if width > 0 { self.widthAnchor.constraint(equalToConstant: width).isActive = true}
+    }
+}
+
+extension UIView {
+    func scalingAnchors(height: NSLayoutDimension?, heightScale: CGFloat, width: NSLayoutDimension?, widthScale: CGFloat) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let height = height {
+            self.heightAnchor.constraint(equalTo: height, multiplier: heightScale).isActive = true
+        }
+        
+        if let width = width {
+            self.widthAnchor.constraint(equalTo: width, multiplier: widthScale).isActive = true
+        }
+    }
+}
+
+extension UIViewController: MKMapViewDelegate {
+    private func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let circelOverLay = overlay as? MKCircle else {return MKOverlayRenderer()}
+        
+        let circleRenderer = MKCircleRenderer(circle: circelOverLay)
+        circleRenderer.strokeColor = .blue
+        circleRenderer.fillColor = .blue
+        circleRenderer.alpha = 0.2
+        return circleRenderer
+    }
+}
+
+extension UIView {
+    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.0,1.0]
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

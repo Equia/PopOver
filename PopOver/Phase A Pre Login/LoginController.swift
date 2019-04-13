@@ -15,6 +15,7 @@ class LoginController: UIViewController {
         view.backgroundColor = THEME_MAIN
         navigationController?.isNavigationBarHidden = true
         placeItems()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,8 +27,9 @@ class LoginController: UIViewController {
     //2. Customizes image
     let popOverIcon: UIImageView = {
         let icon = UIImageView()
-        icon.image = #imageLiteral(resourceName: "whitepng") //sets image for icon
+        icon.image = UIImage(named: "whitepng.png")!.withRenderingMode(.alwaysTemplate) //sets image for icon
         icon.contentMode = UIView.ContentMode.scaleAspectFit //maintains aspect ratio of image
+        icon.tintColor = .white //tints item
         return icon
     }()
     
@@ -124,6 +126,16 @@ class LoginController: UIViewController {
         return textField
     }()
     
+    let backgroundBlock: UIView = {
+        let block = UIView()
+        block.layer.cornerRadius = 15
+        block.backgroundColor = .white
+        block.translatesAutoresizingMaskIntoConstraints = true
+        block.alpha = 0.7 //changes opacity
+        block.isOpaque = true //enables opacity
+        return block
+    }()
+    
     //LOGIN BUTTON
     //1. Builds button
     //2. Checks credentials, then signs in if information is correct
@@ -131,11 +143,13 @@ class LoginController: UIViewController {
         let button = UIButton()
         
         //changes color of button
-        button.backgroundColor = THEME_ACCENT_2
+        button.backgroundColor = PURPLE_GRADIENT2
+        //button.setGradientBackground(colorOne: PURPLE_GRADIENT1, colorTwo: PURPLE_GRADIENT2)
         
         //sets button text
         button.setTitle("Login", for: .normal)
         
+        button.addTarget(self, action: #selector(login), for: .touchUpInside)
         return button
     }()
     
@@ -172,6 +186,7 @@ class LoginController: UIViewController {
     
     //Places all items on the view controller
     fileprivate func placeItems() {
+        //`placeBlock()
         placeUserTextField()
         placePasswordTextField() //contingent on user text field location, must come after
         placeForgotPassButton() //contingent on password text field location, must come after
@@ -234,6 +249,11 @@ class LoginController: UIViewController {
         popOverIcon.anchors(top: nil, topPad: 0, bottom: userTextField.topAnchor, bottomPad: 40, left: userTextField.leftAnchor, leftPad: 0, right: userTextField.rightAnchor, rightPad: 0, height: 0, width: 0)
     }
     
+    fileprivate func placeBlock() {
+        view.addSubview(backgroundBlock)
+        backgroundBlock.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: UIScreen.main.bounds.height * 1/20, bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomPad: UIScreen.main.bounds.height * 1/6, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: UIScreen.main.bounds.width * 1/20, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/20, height: 0, width: 0)
+    }
+    
     //Pushes the view controller to the sign up controller
     @objc func toSignUpController() {
         
@@ -257,8 +277,17 @@ class LoginController: UIViewController {
         //Change push location
         let controller = ForgotPasswordController()
         
+
         //Pushes to view controller
         navigationController?.pushViewController(controller, animated: false)
     }
+    
+    @objc func login() {
+        
+        let controller = HomeScreenController()
+        
+        navigationController?.pushViewController(controller,animated: false)
+    }
+    
     
 }
