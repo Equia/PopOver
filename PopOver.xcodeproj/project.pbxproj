@@ -19,6 +19,8 @@
 		417255AD22540E4500DCE131 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417255AC22540E4500DCE131 /* Extensions.swift */; };
 		417E953B22557ADE00337000 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E953A22557ADE00337000 /* SignUpController.swift */; };
 		417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E953C2255A05F00337000 /* ForgotPasswordController.swift */; };
+		41989DCF226FF68D00CD2BD8 /* ActiveJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41989DCE226FF68D00CD2BD8 /* ActiveJobController.swift */; };
+		41A5B4B62272CDE200586ADF /* OrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5B4B52272CDE100586ADF /* OrderScreen.swift */; };
 		41CFDDCA2259554E00AA7FC0 /* HomescreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFDDC92259554E00AA7FC0 /* HomescreenController.swift */; };
 		41CFDDCC2259556900AA7FC0 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFDDCB2259556900AA7FC0 /* NavigationDrawer.swift */; };
 		41CFDDCE2259C85F00AA7FC0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CFDDCD2259C85F00AA7FC0 /* MapKit.framework */; };
@@ -43,6 +45,8 @@
 		417255AC22540E4500DCE131 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		417E953A22557ADE00337000 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		417E953C2255A05F00337000 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		41989DCE226FF68D00CD2BD8 /* ActiveJobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveJobController.swift; sourceTree = "<group>"; };
+		41A5B4B52272CDE100586ADF /* OrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreen.swift; sourceTree = "<group>"; };
 		41CFDDC92259554E00AA7FC0 /* HomescreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenController.swift; sourceTree = "<group>"; };
 		41CFDDCB2259556900AA7FC0 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		41CFDDCD2259C85F00AA7FC0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -116,6 +120,8 @@
 				417E953C2255A05F00337000 /* ForgotPasswordController.swift */,
 				41CFDDC92259554E00AA7FC0 /* HomescreenController.swift */,
 				41CFDDD3225A5B0B00AA7FC0 /* NotificationsController.swift */,
+				41A5B4B52272CDE100586ADF /* OrderScreen.swift */,
+				41989DCE226FF68D00CD2BD8 /* ActiveJobController.swift */,
 			);
 			path = "Phase B View Controllers";
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 			files = (
 				41CFDDCC2259556900AA7FC0 /* NavigationDrawer.swift in Sources */,
 				41FE42A7225E68CB003C804B /* SettingsController.swift in Sources */,
+				41A5B4B62272CDE200586ADF /* OrderScreen.swift in Sources */,
 				417E953B22557ADE00337000 /* SignUpController.swift in Sources */,
 				41CFDDD4225A5B0B00AA7FC0 /* NotificationsController.swift in Sources */,
 				417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */,
@@ -278,6 +285,7 @@
 				411F9D6F225BE16200BBDD26 /* TutorialPanels.swift in Sources */,
 				413600F2224FEC3700AB4983 /* LoginController.swift in Sources */,
 				411F9D71225BF45300BBDD26 /* Tutorial-Scroller.swift in Sources */,
+				41989DCF226FF68D00CD2BD8 /* ActiveJobController.swift in Sources */,
 				413600F0224FEC3700AB4983 /* AppDelegate.swift in Sources */,
 				417255AD22540E4500DCE131 /* Extensions.swift in Sources */,
 			);

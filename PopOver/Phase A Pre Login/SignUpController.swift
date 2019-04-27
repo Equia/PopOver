@@ -38,7 +38,7 @@ class SignUpController: UIViewController {
     //1. Builds icon
     let popOverIcon: UIImageView = {
         let icon = UIImageView()
-        icon.image = #imageLiteral(resourceName: "whitepng") //sets image for icon
+        icon.image = #imageLiteral(resourceName: "logo") //sets image for icon
         icon.contentMode = UIView.ContentMode.scaleAspectFit //maintains aspect ratio of image
         return icon
     }()
@@ -215,7 +215,8 @@ class SignUpController: UIViewController {
     
     fileprivate func placeIcon() {
         view.addSubview(popOverIcon)
-        popOverIcon.anchors(top: nil, topPad: 0, bottom: userTextField.topAnchor, bottomPad: 40, left: userTextField.leftAnchor, leftPad: 0, right: userTextField.rightAnchor, rightPad: 0, height: 0, width: 0)
+        popOverIcon.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 30, bottom: userTextField.topAnchor, bottomPad: 40, left: userTextField.leftAnchor, leftPad: 0, right: userTextField.rightAnchor, rightPad: 0, height: 0, width: 0)
+        popOverIcon.contentMode = .scaleAspectFit
     }
     
     fileprivate func placeUserTextField() {

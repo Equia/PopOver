@@ -43,21 +43,21 @@ class HomeScreenController: UIViewController, CLLocationManagerDelegate {
         mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
         mapView.showsBuildings = true
         
-        let currentLocation = userLocation.location
+        //let currentLocation = userLocation.location
         //let region = MKCoordinateRegion(center: currentLocation!.coordinate, latitudinalMeters: CLLocationDistance(exactly: 5000)!, longitudinalMeters: CLLocationDistance(exactly: 5000)!)
         //mapView.setRegion(mapView.regionThatFits(region), animated: true)
         mapView.center = view.center
         view.addSubview(mapView)
         
-        let workCircle = MKCircle(center: currentLocation!.coordinate, radius: 500)
-        let circleOverlay = MKCircleRenderer(circle: workCircle)
+        //let workCircle = MKCircle(center: currentLocation!.coordinate, radius: 500)
+        //let circleOverlay = MKCircleRenderer(circle: workCircle)
         
-        circleOverlay.fillColor = THEME_HIGHLIGHTS
-        circleOverlay.strokeColor = THEME_MAIN
-        circleOverlay.alpha = 0.5
+        //circleOverlay.fillColor = THEME_HIGHLIGHTS
+        //circleOverlay.strokeColor = THEME_MAIN
+        //circleOverlay.alpha = 0.5
         
         print("ONE")
-        mapView.addOverlay(MKCircle(center: currentLocation!.coordinate, radius: 500))
+        //mapView.addOverlay(MKCircle(center: currentLocation!.coordinate, radius: 500))
         print("TWO")
     }
     /*

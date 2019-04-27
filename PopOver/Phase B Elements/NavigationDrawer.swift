@@ -30,7 +30,7 @@ class NavigationDrawer: UIView, UITableViewDelegate, UITableViewDataSource {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let buttonArray = ["Home", "Notifications", "Payment", "Task history", "Promotions", "Help", "Settings"]
+    let buttonArray = ["Home", "Choose jobs", "Payment", "Task history", "Promotions", "Help", "Settings"]
     let buttonImageArray = ["home.png", "notifications.png", "payment.png", "history.png", "promotions.png", "help.png", "settings.png"]
     
     let dismissalBackground: UIButton = {
@@ -107,6 +107,7 @@ class NavigationDrawer: UIView, UITableViewDelegate, UITableViewDataSource {
         addSubview(menuBackground)
         menuBackground.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
     }
+    
     fileprivate func placeItems() {
         placeProfileButton()
         placeUsersName()
@@ -161,7 +162,6 @@ class NavigationDrawer: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func loadBlankButton() {
         addSubview(dismissalBackground)
-        //dismissalBackground.anchors(top: menuBackground.topAnchor, topPad: 0, bottom: menuBackground.bottomAnchor, bottomPad: 0, left: menuBackground.rightAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: 0)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -225,7 +225,7 @@ class NavigationDrawer: UIView, UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 (superview?.next as? UIViewController)?.navigationController?.pushViewController(HomeScreenController(), animated: false)
             } else if indexPath.row == 1 {
-                (superview?.next as? UIViewController)?.navigationController?.pushViewController(HomeScreenController(), animated: false)
+                (superview?.next as? UIViewController)?.navigationController?.pushViewController(ActiveJobController(), animated: false)
             } else if indexPath.row == 2 {
                 (superview?.next as? UIViewController)?.navigationController?.pushViewController(HomeScreenController(), animated: false)
             } else if indexPath.row == 3 {

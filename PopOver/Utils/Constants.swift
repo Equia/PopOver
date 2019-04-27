@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-var THEME_MAIN = UIColor(displayP3Red: 249 / 255, green: 185 / 255, blue: 57 / 255, alpha: 1)
+var THEME_MAIN = UIColor(displayP3Red: 255 / 255, green: 184 / 255, blue: 82 / 255, alpha: 1)
 
-let THEME_MAIN_LIGHT = UIColor(displayP3Red: 249 / 255, green: 216 / 255, blue: 69 / 255, alpha: 1)
+let THEME_MAIN_LIGHT = UIColor(displayP3Red: 250 / 255, green: 157 / 255, blue: 68 / 255, alpha: 1)
 
 let THEME_MAIN_DARK = UIColor(displayP3Red: 214 / 255, green: 147 / 255, blue: 40 / 255, alpha: 1)
 

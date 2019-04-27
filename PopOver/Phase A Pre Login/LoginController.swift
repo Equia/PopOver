@@ -12,7 +12,8 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = THEME_MAIN
+        //view.backgroundColor = THEME_MAIN
+        view.setGradientBackground(colorOne: THEME_MAIN_LIGHT, colorTwo: THEME_MAIN)
         navigationController?.isNavigationBarHidden = true
         placeItems()
         
@@ -27,7 +28,7 @@ class LoginController: UIViewController {
     //2. Customizes image
     let popOverIcon: UIImageView = {
         let icon = UIImageView()
-        icon.image = UIImage(named: "whitepng.png")!.withRenderingMode(.alwaysTemplate) //sets image for icon
+        icon.image = UIImage(named: "logo.png")!.withRenderingMode(.alwaysTemplate) //sets image for icon
         icon.contentMode = UIView.ContentMode.scaleAspectFit //maintains aspect ratio of image
         icon.tintColor = .white //tints item
         return icon
@@ -246,7 +247,9 @@ class LoginController: UIViewController {
     
     fileprivate func placeIcon() {
         view.addSubview(popOverIcon)
-        popOverIcon.anchors(top: nil, topPad: 0, bottom: userTextField.topAnchor, bottomPad: 40, left: userTextField.leftAnchor, leftPad: 0, right: userTextField.rightAnchor, rightPad: 0, height: 0, width: 0)
+        popOverIcon.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 30, bottom: userTextField.topAnchor, bottomPad: 40, left: userTextField.leftAnchor, leftPad: 0, right: userTextField.rightAnchor, rightPad: 0, height: 0, width: 0)
+        
+        popOverIcon.contentMode = .scaleAspectFit
     }
     
     fileprivate func placeBlock() {
