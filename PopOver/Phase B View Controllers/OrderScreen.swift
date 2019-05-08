@@ -13,6 +13,7 @@ class OrderScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = true
         buildBanner()
         buildBoxes()
     }
@@ -20,6 +21,8 @@ class OrderScreen: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    var orderText = "This displays the ordered task"
     
 //screen label section
     let purpleBanner: UIView = {
@@ -92,7 +95,7 @@ class OrderScreen: UIViewController {
     
     let taskLabel: UILabel = {
         let label = UILabel()
-        label.text = "This displays the ordered task"
+        //label.text = orderText
         label.font = UIFont(name:"HelveticaNeue-Bold", size: 20)
         label.textColor = .darkGray
         label.numberOfLines = 0
@@ -109,7 +112,7 @@ class OrderScreen: UIViewController {
     
     let addressLabel2: UILabel = {
         let label = UILabel()
-        label.text = "This displays the address the student is going to work at"
+        label.text = "This displays the address to work at"
         label.font = UIFont(name:"HelveticaNeue", size: 16)
         label.textColor = .lightGray
         label.numberOfLines = 0
@@ -127,6 +130,7 @@ class OrderScreen: UIViewController {
         plate.layer.shadowRadius = 5
         plate.layer.shadowOpacity = 0.7
         plate.layer.shadowOffset = CGSize(width: 2, height: 2)
+
         return plate
     }()
     
@@ -139,6 +143,7 @@ class OrderScreen: UIViewController {
         timeText.textAlignment = .center
         timeText.font = UIFont(name:"HelveticaNeue-Bold", size: 24)
         timeText.isEditable = false
+        timeText.layer.cornerRadius = UIScreen.main.bounds.width * 1/32
         return timeText
     }()
     
@@ -218,6 +223,108 @@ class OrderScreen: UIViewController {
         
         return plate
     }()
+    
+    let baseCostLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Task cost estimate"
+        label.font = UIFont(name:"HelveticaNeue", size: 18)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let durationlabel: UILabel = {
+        let label = UILabel()
+        label.text = "Time estimate (hours)"
+        label.font = UIFont(name:"HelveticaNeue", size: 18)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let taxLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tax"
+        label.font = UIFont(name:"HelveticaNeue", size: 18)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let totalLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Total"
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 22)
+        label.textColor = UIColor(displayP3Red: 135/255, green: 176/255, blue: 242/255, alpha: 1)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let taskCost: UITextView = {
+        let labelText = UITextView()
+        labelText.textColor = .gray
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 18)
+        labelText.text = "$10.00"
+        labelText.textAlignment = .right
+        labelText.isEditable = false
+        labelText.translatesAutoresizingMaskIntoConstraints = true
+        return labelText
+    }()
+    
+    let durationConfirm: UITextView = {
+        let labelText = UITextView()
+        labelText.textColor = .gray
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 18)
+        labelText.text = "0.5"
+        labelText.isEditable = false
+        labelText.textAlignment = .right
+
+
+        return labelText
+    }()
+    
+    let taxCost: UITextView = {
+        let labelText = UITextView()
+        labelText.textColor = .gray
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 18)
+        labelText.text = "$1.01"
+        labelText.isEditable = false
+        labelText.textAlignment = .right
+        return labelText
+    }()
+    
+    let totalCost: UITextView = {
+        let labelText = UITextView()
+        labelText.textColor = UIColor(displayP3Red: 135/255, green: 176/255, blue: 242/255, alpha: 1)
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 22)
+        labelText.text = "$11.01"
+        labelText.isEditable = false
+        labelText.textAlignment = .right
+
+
+        return labelText
+    }()
+    
+    let confirmButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 7/10, height: UIScreen.main.bounds.height * 1/16))
+        button.backgroundColor = PURPLE_GRADIENT2
+        button.setTitle("Confirm", for: .normal)
+        button.layer.cornerRadius = UIScreen.main.bounds.height * 1/32
+        
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = button.bounds
+        gradient.colors = [PURPLE_GRADIENT1.cgColor, PURPLE_GRADIENT2.cgColor]
+        gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.cornerRadius = UIScreen.main.bounds.height * 1/32
+        
+        button.layer.insertSublayer(gradient, at: 0)
+        
+        button.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
+        return button
+    }()
+    
 //end of confirmation section
     
 //building top banner functions
@@ -275,6 +382,8 @@ class OrderScreen: UIViewController {
     fileprivate func buildJobTitle() {
         informationPlate.addSubview(taskLabel)
         taskLabel.anchors(top: informationPlate.topAnchor, topPad: UIScreen.main.bounds.height * 1/50, bottom: nil, bottomPad: 0, left: colorIndent.rightAnchor, leftPad: UIScreen.main.bounds.width * 1/20, right: informationPlate.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/20, height: 0, width: 0)
+        
+        taskLabel.text = orderText
     }
     
     fileprivate func buildAddressLabel1() {
@@ -291,14 +400,14 @@ class OrderScreen: UIViewController {
 //beginning of job duration building functions
     fileprivate func buildDurationBox() {
         view.addSubview(durationPlate)
-        durationPlate.anchors(top: informationPlate.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/50, bottom: nil, bottomPad: 0, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: UIScreen.main.bounds.width * 1/20, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/20, height: UIScreen.main.bounds.height * 1/5, width: 0)
+        durationPlate.anchors(top: informationPlate.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/50, bottom: nil, bottomPad: 0, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: UIScreen.main.bounds.width * 1/20, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/20, height: UIScreen.main.bounds.height * 1/6, width: 0)
         
         buildtimeLabel()
     }
     
     fileprivate func buildtimeLabel() {
         durationPlate.addSubview(timeText)
-        timeText.anchors(top: durationPlate.topAnchor, topPad: UIScreen.main.bounds.height * 1/50, bottom: nil, bottomPad: 0, left: durationPlate.leftAnchor, leftPad: 0, right: durationPlate.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/20, width: 0)
+        timeText.anchors(top: durationPlate.topAnchor, topPad:0, bottom: nil, bottomPad: 0, left: durationPlate.leftAnchor, leftPad: 0, right: durationPlate.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/20, width: 0)
         
         buildTimeButtons()
     }
@@ -334,7 +443,56 @@ class OrderScreen: UIViewController {
     fileprivate func buildConfirmationBox() {
         view.addSubview(confirmationPlate)
         confirmationPlate.anchors(top: durationPlate.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/50, bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomPad: UIScreen.main.bounds.height * 1/30, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: UIScreen.main.bounds.width * 1/20, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/20, height: UIScreen.main.bounds.height * 1/5, width: 0)
+        
+        buildLabels()
+        placePrices()
     }
+    
+    fileprivate func buildLabels() {
+        
+        let heightPad = UIScreen.main.bounds.height * 1/40
+        let widthPad = UIScreen.main.bounds.width * 1/10
+        
+        confirmationPlate.addSubview(baseCostLabel)
+        baseCostLabel.anchors(top: confirmationPlate.topAnchor, topPad: heightPad, bottom: nil, bottomPad: 0, left: confirmationPlate.leftAnchor, leftPad: widthPad, right: nil, rightPad: 0, height: 0, width: 0)
+        
+        confirmationPlate.addSubview(durationlabel)
+        durationlabel.anchors(top: baseCostLabel.topAnchor, topPad: heightPad * 1.4, bottom: nil, bottomPad: 0, left: confirmationPlate.leftAnchor, leftPad: widthPad, right: nil, rightPad: 0, height: 0, width: 0)
+        
+        confirmationPlate.addSubview(taxLabel)
+        taxLabel.anchors(top: durationlabel.topAnchor, topPad: heightPad * 1.4, bottom: nil, bottomPad: 0, left: confirmationPlate.leftAnchor, leftPad: widthPad, right: nil, rightPad: 0, height: 0, width: 0)
+        
+        confirmationPlate.addSubview(totalLabel)
+        totalLabel.anchors(top: taxLabel.topAnchor, topPad: heightPad * 2, bottom: nil, bottomPad: 0, left: confirmationPlate.leftAnchor, leftPad: widthPad, right: nil, rightPad: 0, height: 0, width: 0)
+        
+    }
+    
+    fileprivate func placePrices() {
+        
+        let heightPad = UIScreen.main.bounds.height * 1/40
+        let widthPad = UIScreen.main.bounds.width * 1/10
+        confirmationPlate.addSubview(taskCost)
+        taskCost.anchors(top: baseCostLabel.topAnchor, topPad: -1/2 * heightPad, bottom: nil, bottomPad: 0, left: baseCostLabel.rightAnchor, leftPad: 0, right: confirmationPlate.rightAnchor, rightPad: widthPad, height: heightPad * 2, width: 0)
+        
+        
+        confirmationPlate.addSubview(durationConfirm)
+        durationConfirm.anchors(top: durationlabel.topAnchor, topPad: -1/2 * heightPad, bottom: nil, bottomPad: 0, left: durationlabel.rightAnchor, leftPad: 0, right: confirmationPlate.rightAnchor, rightPad: widthPad, height: heightPad * 2, width: 0)
+        
+        
+        
+        confirmationPlate.addSubview(taxCost)
+        taxCost.anchors(top: taxLabel.topAnchor, topPad: -1/2 * heightPad, bottom: nil, bottomPad: 0, left: taxLabel.rightAnchor, leftPad: 0, right: confirmationPlate.rightAnchor, rightPad: widthPad, height: heightPad * 2, width: 0)
+        
+        
+        confirmationPlate.addSubview(totalCost)
+        totalCost.anchors(top: totalLabel.topAnchor, topPad: -1/2 * heightPad, bottom: nil, bottomPad: 0, left: totalLabel.rightAnchor, leftPad: 0, right: confirmationPlate.rightAnchor, rightPad: widthPad, height: heightPad * 2, width: 0)
+        
+        confirmationPlate.addSubview(confirmButton)
+        confirmButton.anchors(top: nil, topPad: 0, bottom: confirmationPlate.bottomAnchor, bottomPad: heightPad, left: confirmationPlate.leftAnchor, leftPad: widthPad, right: confirmationPlate.rightAnchor, rightPad: widthPad, height: UIScreen.main.bounds.height * 1/16, width: 0)
+    }
+    
+    
+    
 //end of confirmation building functions
     
     @objc func onClickButton(_ sender: UIButton) {
@@ -345,17 +503,35 @@ class OrderScreen: UIViewController {
         
         if sender == min5Button {
             timeText.text = "~5 min to complete"
+            taskCost.text = "$7.50"
+            taxCost.text = "$0.76"
+            totalCost.text = "$8.26"
+            durationConfirm.text = "0.08"
         } else if sender == min15Button {
             timeText.text = "~15 min to complete"
+            taskCost.text = "$7.50"
+            taxCost.text = "$0.76"
+            totalCost.text = "$8.26"
+            durationConfirm.text = "0.25"
         } else if sender == min30Button {
             timeText.text = "~30 min to complete"
+            taskCost.text = "$10.00"
+            taxCost.text = "$1.01"
+            totalCost.text = "$11.01"
+            durationConfirm.text = "0.5"
         } else if sender == hr1Button {
             timeText.text = "~1 hour to complete"
+            taskCost.text = "$15.00"
+            taxCost.text = "$1.52"
+            totalCost.text = "$16.52"
+            durationConfirm.text = "1.0"
         } else if sender == hr2Button {
-            timeText.text = "~2 hour to complete"
+            timeText.text = "~2 hours to complete"
+            taskCost.text = "$25.00"
+            taxCost.text = "2.52"
+            totalCost.text = "$27.52"
+            durationConfirm.text = "2.0"
         }
-
-        //timeText.text = "~\(timeEstimate) min to complete"
     }
     
     func deselectAllButtons(){
@@ -370,6 +546,27 @@ class OrderScreen: UIViewController {
             }
         }
     }
+    
+//confirmation alert
+    let noJobAlert: UIAlertController = {
+        let alert = UIAlertController(title: "Success! \n Order #5882 Received", message: "A PopOver worker is on \n their way to you as you read this. In the mean time, why not kick back and relax? We got this.", preferredStyle: .alert)
+        //alert.addAction(UIAlertAction(title: "Back to home", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil) }))
+        
+        alert.addAction(UIAlertAction(title: "Back to home", style: UIAlertAction.Style.default, handler: { (action) in
+            
+            // go back to the login view controller
+            // go back through the navigation controller
+            
+            let vc = HomeScreenController()
+            alert.present(vc, animated: false, completion: nil)
+            
+            
+        }))
+        return alert
+    }()
+    
+    @objc func createAlert() {
+        self.present(noJobAlert, animated: true)
+        
+    }
 }
-
-

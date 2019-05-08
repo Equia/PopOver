@@ -23,6 +23,7 @@ class NavigationDrawer: UIView, UITableViewDelegate, UITableViewDataSource {
         
         makeBackground()
         placeItems()
+        loadTableData()
 
     }
     
@@ -31,6 +32,7 @@ class NavigationDrawer: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     let buttonArray = ["Home", "Choose jobs", "Payment", "Task history", "Promotions", "Help", "Settings"]
+    //let buttonArray = ["Home", "Choose jobs", "Coming soon", "Coming soon", "Coming soon", "Coming soon", "Coming soon"]
     let buttonImageArray = ["home.png", "notifications.png", "payment.png", "history.png", "promotions.png", "help.png", "settings.png"]
     
     let dismissalBackground: UIButton = {

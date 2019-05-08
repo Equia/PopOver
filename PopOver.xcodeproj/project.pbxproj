@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4101E0962274534E0060AC6D /* NavigationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101E0952274534E0060AC6D /* NavigationScreen.swift */; };
+		4101E0982274580D0060AC6D /* CustomerJobPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101E0972274580D0060AC6D /* CustomerJobPicker.swift */; };
 		411F9D6F225BE16200BBDD26 /* TutorialPanels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F9D6E225BE16200BBDD26 /* TutorialPanels.swift */; };
 		411F9D71225BF45300BBDD26 /* Tutorial-Scroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F9D70225BF45300BBDD26 /* Tutorial-Scroller.swift */; };
 		413600F0224FEC3700AB4983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413600EF224FEC3700AB4983 /* AppDelegate.swift */; };
@@ -21,16 +23,21 @@
 		417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E953C2255A05F00337000 /* ForgotPasswordController.swift */; };
 		41989DCF226FF68D00CD2BD8 /* ActiveJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41989DCE226FF68D00CD2BD8 /* ActiveJobController.swift */; };
 		41A5B4B62272CDE200586ADF /* OrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5B4B52272CDE100586ADF /* OrderScreen.swift */; };
+		41B4D2A72282060E007AD5D3 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B4D2A62282060E007AD5D3 /* Dashboard.swift */; };
 		41CFDDCA2259554E00AA7FC0 /* HomescreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFDDC92259554E00AA7FC0 /* HomescreenController.swift */; };
 		41CFDDCC2259556900AA7FC0 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFDDCB2259556900AA7FC0 /* NavigationDrawer.swift */; };
 		41CFDDCE2259C85F00AA7FC0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CFDDCD2259C85F00AA7FC0 /* MapKit.framework */; };
 		41CFDDD4225A5B0B00AA7FC0 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFDDD3225A5B0B00AA7FC0 /* NotificationsController.swift */; };
+		41D70D8F2277A4E200C13E29 /* ActiveJobController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D70D8E2277A4E200C13E29 /* ActiveJobController2.swift */; };
+		41EA3E3B227F6132006791A3 /* ActiveViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3E3A227F6132006791A3 /* ActiveViewController3.swift */; };
 		41FE42A7225E68CB003C804B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE42A6225E68CB003C804B /* SettingsController.swift */; };
 		D1D17EBBDC8F49584F3E7FC9 /* Pods_PopOver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F727FF4512DE52FD9DDFB25 /* Pods_PopOver.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F727FF4512DE52FD9DDFB25 /* Pods_PopOver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopOver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4101E0952274534E0060AC6D /* NavigationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationScreen.swift; sourceTree = "<group>"; };
+		4101E0972274580D0060AC6D /* CustomerJobPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerJobPicker.swift; sourceTree = "<group>"; };
 		411F9D6E225BE16200BBDD26 /* TutorialPanels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPanels.swift; sourceTree = "<group>"; };
 		411F9D70225BF45300BBDD26 /* Tutorial-Scroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tutorial-Scroller.swift"; sourceTree = "<group>"; };
 		413600EC224FEC3700AB4983 /* PopOver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopOver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,11 +54,14 @@
 		417E953C2255A05F00337000 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		41989DCE226FF68D00CD2BD8 /* ActiveJobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveJobController.swift; sourceTree = "<group>"; };
 		41A5B4B52272CDE100586ADF /* OrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreen.swift; sourceTree = "<group>"; };
+		41B4D2A62282060E007AD5D3 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		41CFDDC92259554E00AA7FC0 /* HomescreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenController.swift; sourceTree = "<group>"; };
 		41CFDDCB2259556900AA7FC0 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		41CFDDCD2259C85F00AA7FC0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		41CFDDCF2259C87800AA7FC0 /* PopOver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PopOver.entitlements; sourceTree = "<group>"; };
 		41CFDDD3225A5B0B00AA7FC0 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		41D70D8E2277A4E200C13E29 /* ActiveJobController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveJobController2.swift; sourceTree = "<group>"; };
+		41EA3E3A227F6132006791A3 /* ActiveViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveViewController3.swift; sourceTree = "<group>"; };
 		41FE42A6225E68CB003C804B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		8811866F7B1A31DD254111ED /* Pods-PopOver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopOver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopOver/Pods-PopOver.debug.xcconfig"; sourceTree = "<group>"; };
 		8BCF751D70AD5C8B7CD079D4 /* Pods-PopOver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopOver.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopOver/Pods-PopOver.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +132,11 @@
 				41CFDDD3225A5B0B00AA7FC0 /* NotificationsController.swift */,
 				41A5B4B52272CDE100586ADF /* OrderScreen.swift */,
 				41989DCE226FF68D00CD2BD8 /* ActiveJobController.swift */,
+				4101E0952274534E0060AC6D /* NavigationScreen.swift */,
+				4101E0972274580D0060AC6D /* CustomerJobPicker.swift */,
+				41D70D8E2277A4E200C13E29 /* ActiveJobController2.swift */,
+				41EA3E3A227F6132006791A3 /* ActiveViewController3.swift */,
+				41B4D2A62282060E007AD5D3 /* Dashboard.swift */,
 			);
 			path = "Phase B View Controllers";
 			sourceTree = "<group>";
@@ -273,17 +288,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4101E0982274580D0060AC6D /* CustomerJobPicker.swift in Sources */,
 				41CFDDCC2259556900AA7FC0 /* NavigationDrawer.swift in Sources */,
+				41B4D2A72282060E007AD5D3 /* Dashboard.swift in Sources */,
+				4101E0962274534E0060AC6D /* NavigationScreen.swift in Sources */,
 				41FE42A7225E68CB003C804B /* SettingsController.swift in Sources */,
 				41A5B4B62272CDE200586ADF /* OrderScreen.swift in Sources */,
 				417E953B22557ADE00337000 /* SignUpController.swift in Sources */,
 				41CFDDD4225A5B0B00AA7FC0 /* NotificationsController.swift in Sources */,
 				417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */,
+				41D70D8F2277A4E200C13E29 /* ActiveJobController2.swift in Sources */,
 				41CFDDCA2259554E00AA7FC0 /* HomescreenController.swift in Sources */,
 				415D37022256CBCB003AFDC7 /* EmailSentController.swift in Sources */,
 				417255AA2253E96B00DCE131 /* Constants.swift in Sources */,
 				411F9D6F225BE16200BBDD26 /* TutorialPanels.swift in Sources */,
 				413600F2224FEC3700AB4983 /* LoginController.swift in Sources */,
+				41EA3E3B227F6132006791A3 /* ActiveViewController3.swift in Sources */,
 				411F9D71225BF45300BBDD26 /* Tutorial-Scroller.swift in Sources */,
 				41989DCF226FF68D00CD2BD8 /* ActiveJobController.swift in Sources */,
 				413600F0224FEC3700AB4983 /* AppDelegate.swift in Sources */,

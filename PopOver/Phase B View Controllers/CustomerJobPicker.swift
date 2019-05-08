@@ -1,15 +1,15 @@
 //
-//  ActiveJobController.swift
+//  CustomerJobPicker.swift
 //  PopOver
 //
-//  Created by Chris Porter on 4/23/19.
+//  Created by Chris Porter on 4/27/19.
 //  Copyright © 2019 PopOver. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ActiveJobController: UIViewController {
+class CustomerJobPicker: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(displayP3Red: 237 / 255, green: 237 / 255, blue: 237 / 255, alpha: 1)
@@ -34,7 +34,7 @@ class ActiveJobController: UIViewController {
         let gradient = CAGradientLayer()
         
         gradient.frame = view.bounds
-        gradient.colors = [PURPLE_GRADIENT1.cgColor, PURPLE_GRADIENT2.cgColor]
+        gradient.colors = [ORANGE_GRADIENT2.cgColor, ORANGE_GRADIENT1.cgColor]
         gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
         
@@ -85,11 +85,11 @@ class ActiveJobController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = PURPLE_GRADIENT2.cgColor
-        //button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
+        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_trash"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/18,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/18)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
         return button
     }()
     
@@ -103,11 +103,11 @@ class ActiveJobController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = PURPLE_GRADIENT2.cgColor
-        //button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
+        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_housekeeper"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/16,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/16)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
         return button
     }()
     
@@ -121,11 +121,11 @@ class ActiveJobController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = PURPLE_GRADIENT2.cgColor
-        //button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
+        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_house"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
         return button
     }()
     
@@ -139,11 +139,11 @@ class ActiveJobController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = PURPLE_GRADIENT2.cgColor
-        //button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
+        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_plant"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
         return button
     }()
     
@@ -157,11 +157,11 @@ class ActiveJobController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = PURPLE_GRADIENT2.cgColor
-        //button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
+        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_folder"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
         return button
     }()
     
@@ -175,17 +175,17 @@ class ActiveJobController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = PURPLE_GRADIENT2.cgColor
-        //button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
+        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_shoppingcart"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
         return button
     }()
     
     let confirmButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = PURPLE_GRADIENT2
+        button.backgroundColor = ORANGE_GRADIENT1
         button.setTitle("Confirm", for: .normal)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/32
         button.addTarget(self, action: #selector(toOrderScreen), for: .touchUpInside)
@@ -210,8 +210,8 @@ class ActiveJobController: UIViewController {
     
     let screenLabel: UILabel = {
         let label = UILabel()
-        label.text = "Select your jobs"
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 32)
+        label.text = "Select a job to get done"
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 24)
         label.textColor = .white
         label.textAlignment = .center
         return label
@@ -312,23 +312,23 @@ class ActiveJobController: UIViewController {
     
     @objc func buttonTapped(sender: UIButton) {
         if errorStatus == false {
-        if sender.backgroundColor == .white {
-            sender.backgroundColor = PURPLE_GRADIENT2
-            activeTaskCount += 1
-            if activeTaskCount == 1 {
-                jobText.text = "\(activeTaskCount) job selected."
-            } else {
-                jobText.text = "\(activeTaskCount) jobs selected."
-            }
-            } else if sender.backgroundColor == PURPLE_GRADIENT2 {
+            if sender.backgroundColor == .white {
+                sender.backgroundColor = ORANGE_GRADIENT1
+                activeTaskCount += 1
+                if activeTaskCount == 1 {
+                    jobText.text = "\(activeTaskCount) job selected."
+                } else {
+                    jobText.text = "\(activeTaskCount) jobs selected."
+                }
+            } else if sender.backgroundColor == ORANGE_GRADIENT1 {
                 sender.backgroundColor = .white
-            activeTaskCount -= 1
-            if activeTaskCount == 1 {
-                jobText.text = "\(activeTaskCount) job selected."
-            } else {
-            jobText.text = "\(activeTaskCount) jobs selected."
+                activeTaskCount -= 1
+                if activeTaskCount == 1 {
+                    jobText.text = "\(activeTaskCount) job selected."
+                } else {
+                    jobText.text = "\(activeTaskCount) jobs selected."
+                }
             }
-        }
         }
     }
     
@@ -338,7 +338,7 @@ class ActiveJobController: UIViewController {
     
     @objc func toOrderScreen(sender: UIButton) {
         if activeTaskCount > 0 {
-        navigationController?.pushViewController(OrderScreen(),animated: false)
+            navigationController?.pushViewController(OrderScreen(),animated: false)
         } else if activeTaskCount == 0 {
             createAlert()
         }
@@ -348,7 +348,7 @@ class ActiveJobController: UIViewController {
         navigationController?.pushViewController(HomeScreenController(),animated: false)
     }
     
-//LABELS FOR BUTTONS
+    //LABELS FOR BUTTONS
     let trashLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
@@ -371,7 +371,7 @@ class ActiveJobController: UIViewController {
         label.textColor = .gray
         label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
         label.textAlignment = .center
-        label.text = "Moving Services"
+        label.text = "Moving Help"
         return label
     }()
     
@@ -402,7 +402,7 @@ class ActiveJobController: UIViewController {
         return label
     }()
     
-//function to place labels underneath buttons
+    //function to place labels underneath buttons
     fileprivate func placeButtonLabels() {
         view.addSubview(trashLabel)
         view.addSubview(cleanUpLabel)
@@ -418,7 +418,7 @@ class ActiveJobController: UIViewController {
         cleanUpLabel.anchors(top: cleaningButton.bottomAnchor, topPad: jeff, bottom: plantCareButton.topAnchor, bottomPad: jeff, left: cleaningButton.leftAnchor, leftPad: jeff, right: cleaningButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
         movingLabel.anchors(top: movingButton.bottomAnchor, topPad: jeff, bottom: organizeButton.topAnchor, bottomPad: jeff, left: movingButton.leftAnchor, leftPad: jeff, right: movingButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
-
+        
         plantLabel.anchors(top: plantCareButton.bottomAnchor, topPad: jeff, bottom: shoppingButton.topAnchor, bottomPad: jeff, left: plantCareButton.leftAnchor, leftPad: jeff, right: plantCareButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
         organizeLabel.anchors(top: organizeButton.bottomAnchor, topPad: jeff, bottom: nil, bottomPad: 0, left: organizeButton.leftAnchor, leftPad: jeff, right: organizeButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
@@ -426,4 +426,22 @@ class ActiveJobController: UIViewController {
         shoppingLabel.anchors(top: shoppingButton.bottomAnchor, topPad: jeff, bottom: nil, bottomPad: 0, left: shoppingButton.leftAnchor, leftPad: jeff, right: shoppingButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
     }
     
+    @objc func onClickButton(_ sender: UIButton) {
+        deselectAllButtons()
+        sender.isSelected = true
+        sender.setTitleColor(.blue, for: .normal)
+        sender.backgroundColor = ORANGE_GRADIENT1
+    }
+    func deselectAllButtons(){
+        for subView in view.subviews
+        {
+            // Set all the other buttons as normal state
+            if let button = subView as? UIButton {
+                button.isSelected = false
+                
+                button.backgroundColor = .white
+                
+            }
+        }
+    }
 }

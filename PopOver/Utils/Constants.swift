@@ -30,3 +30,16 @@ let BLUE_GRADIENT2 = UIColor(displayP3Red: 22 / 255, green: 203 / 255, blue: 224
 let PURPLE_GRADIENT1 = UIColor(displayP3Red: 193 / 255, green: 48 / 255, blue: 229 / 255, alpha: 1)
 
 let PURPLE_GRADIENT2 = UIColor(displayP3Red: 129 / 255, green: 48 / 255, blue: 229 / 255, alpha: 1)
+
+let ORANGE_GRADIENT1 = UIColor(displayP3Red: 237 / 255, green: 189 / 255, blue: 59 / 255, alpha: 1)
+
+let ORANGE_GRADIENT2 = UIColor(displayP3Red: 244 / 255, green: 217 / 255, blue: 66 / 255, alpha: 1)
+
+let ORANGE_THEME = UIColor(displayP3Red: 255 / 255, green: 96 / 255, blue: 22 / 255, alpha: 1)
+
+let ORANGE_ACCENT = UIColor(displayP3Red: 255 / 255, green: 214 / 255, blue: 196 / 255, alpha: 1)
+
+let SOFT_ORANGE = UIColor(displayP3Red: 249 / 255, green: 136 / 255, blue: 94 / 255, alpha: 1)
+
+let MONEY_GREEN = UIColor(displayP3Red: 64 / 255, green: 183 / 255, blue: 72 / 255, alpha: 1)
+
