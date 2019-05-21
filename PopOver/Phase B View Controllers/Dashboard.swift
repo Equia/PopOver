@@ -10,17 +10,20 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import AudioToolbox
 
-class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, sendActiveMessageDelegate, UIAlertViewDelegate {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = backColor
         navigationController?.isNavigationBarHidden = true
         buildDashHeader()
         placeHistoryCard()
         toggleTimer(on: true)
+        addEarnings()
+        //placeStatusLabel()
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,13 +33,10 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     let uiHeight = UIScreen.main.bounds.height
     
     let uiWidth = UIScreen.main.bounds.width
+  
+    var backColor = UIColor.white
     
-    
-//map snapshot items
-    
-
-
-//end map snapshot items
+    var alertPresented = false
     
 //All the crap for the timer
     var timer = Timer()
@@ -54,6 +54,10 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
             guard let strongSelf = self else { return }
             
             strongSelf.duration += 1
+            
+            if strongSelf.duration >= 10 { //change start of notifications
+                strongSelf.showAlert()
+            }
             
             if strongSelf.duration % 60 == 0 {
                
@@ -97,15 +101,24 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
 //end all of the crap for the timer
     
-    var earnings = 0.0
+//begin all of the crap for the earnings
+    let historyEarningsArray = [9.39, 11.27, 7.51, 15.03, 7.51]
     
+    var earningsNum = 0.0
+    var earnings = ""
+
+    func addEarnings() {
+        earningsNum = historyEarningsArray.reduce(0, +)
+        earnings = "$\(earningsNum)"
+        earningsCounter.text = earnings
+    }
     
-    
+//end all of the crap for the earnings
     
 //build the orange header of the dashboard + components
     let dashBackground: UIView = {
         let background = UIView()
-        background.backgroundColor = SOFT_ORANGE
+        background.backgroundColor = ORANGE_THEME
         return background
     }()
     
@@ -117,72 +130,148 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         return label
     }()
     
+    let backButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "back.png")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = true
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(backToHome), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func backToHome() {
+        alertPresented = true
+        navigationController?.pushViewController(PresentationNavigator(), animated: false)
+    }
+    
     let earningsLabel: UILabel = {
         let label = UILabel()
         label.text = "Earnings"
-        label.font = UIFont(name: "GillSans", size: 16)
+        label.font = UIFont(name: "GillSans", size: 14)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     
     let earningsCounter: UILabel = {
         let label = UILabel()
         label.text = "$0.00"
-        label.font = UIFont(name: "GillSans", size:24)
+        label.font = UIFont(name: "GillSans", size: 30)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     
     let timeOnlineLabel: UILabel = {
         let label = UILabel()
         label.text = "Time Online"
-        label.font = UIFont(name: "GillSans", size: 16)
+        label.font = UIFont(name: "GillSans", size: 14)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     
     let timeOnlineCounter: UILabel = {
         let label = UILabel()
         label.text = "0:00" // edit to change time
-        label.font = UIFont(name: "GillSans", size: 24)
+        label.font = UIFont(name: "GillSans", size: 30)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     
     let goOnlineLabel: UILabel = {
         let label = UILabel()
         label.text = "Go Online"
-        label.font = UIFont(name: "GillSans", size: 12)
+        label.font = UIFont(name: "GillSans", size: 14)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
+    
+    let onlineButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "power.png")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = true
+        button.tintColor = .white
+        button.layer.borderWidth = 3
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.cornerRadius = UIScreen.main.bounds.width * 1/16
+        button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/24,left: UIScreen.main.bounds.height * 1/24,bottom: UIScreen.main.bounds.height * 1/24,right: UIScreen.main.bounds.height * 1/24)
+        button.addTarget(self, action: #selector(pickJobs), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func pickJobs() {
+        alertPresented = true
+        let vc = GoOnlineController()
+        navigationController?.pushViewController(vc, animated: false)
+    }
     
     
     fileprivate func buildDashHeader() {
         view.addSubview(dashBackground)
         dashBackground.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 0, bottom: nil, bottomPad: 0, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: 0, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: 0, height: uiHeight * 1/4, width: 0)
         
+        dashBackground.addSubview(backButton)
+        backButton.anchors(top: dashBackground.topAnchor, topPad: uiHeight * 1/32, bottom: nil, bottomPad: 0, left: dashBackground.leftAnchor, leftPad: 5, right: nil, rightPad: 0, height: UIScreen.main.bounds.height * 1/24, width: UIScreen.main.bounds.height * 1/24)
+        
         dashBackground.addSubview(dashTitle)
-        dashTitle.anchors(top: dashBackground.topAnchor, topPad: uiHeight*1/32, bottom: nil, bottomPad: 0, left: dashBackground.leftAnchor, leftPad: uiWidth*1/16, right: nil, rightPad: 0, height: 0, width: 0)
+        dashTitle.anchors(top: dashBackground.topAnchor, topPad: uiHeight*1/32, bottom: nil, bottomPad: 0, left: backButton.rightAnchor, leftPad: uiWidth * 1/16, right: nil, rightPad: 0, height: 0, width: 0)
         
         dashBackground.addSubview(earningsLabel)
-        earningsLabel.anchors(top: nil, topPad: 0, bottom: dashBackground.bottomAnchor, bottomPad: uiHeight * 1/12, left: dashBackground.leftAnchor, leftPad: uiWidth * 1/16, right: nil, rightPad: 0, height: 0, width: 0)
+        earningsLabel.anchors(top: nil, topPad: 0, bottom: dashBackground.bottomAnchor, bottomPad: uiHeight * 1/12, left: dashBackground.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: uiWidth * 1/3)
         
         dashBackground.addSubview(earningsCounter)
-        earningsCounter.anchors(top: earningsLabel.bottomAnchor, topPad: 3, bottom: nil, bottomPad: 0, left: earningsLabel.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: 0)
+        earningsCounter.anchors(top: earningsLabel.bottomAnchor, topPad: 15, bottom: nil, bottomPad: 0, left: earningsLabel.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: 0)
+        earningsCounter.centerXAnchor.constraint(equalTo: earningsLabel.centerXAnchor).isActive = true
         
         
         dashBackground.addSubview(timeOnlineLabel)
-        timeOnlineLabel.anchors(top: nil, topPad: 0, bottom: dashBackground.bottomAnchor, bottomPad: uiHeight * 1/12, left: earningsLabel.rightAnchor, leftPad: uiWidth * 1/6, right: nil, rightPad: 0, height: 0, width: 0)
-        
+        timeOnlineLabel.anchors(top: nil, topPad: 0, bottom: dashBackground.bottomAnchor, bottomPad: uiHeight * 1/12, left: earningsLabel.rightAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: uiWidth * 1/3)
         
         dashBackground.addSubview(timeOnlineCounter)
-        timeOnlineCounter.anchors(top: earningsLabel.bottomAnchor, topPad: 3, bottom: nil, bottomPad: 0, left: timeOnlineLabel.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: 0)
+        timeOnlineCounter.anchors(top: earningsLabel.bottomAnchor, topPad: 15, bottom: nil, bottomPad: 0, left: timeOnlineLabel.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: 0)
+        timeOnlineCounter.centerXAnchor.constraint(equalTo: timeOnlineLabel.centerXAnchor).isActive = true
         
         dashBackground.addSubview(goOnlineLabel)
-        goOnlineLabel.anchors(top: nil, topPad: 0, bottom: dashBackground.bottomAnchor, bottomPad: 3, left: nil, leftPad: 0, right: dashBackground.rightAnchor, rightPad: uiWidth * 1/15, height: 0, width: 0)
+        goOnlineLabel.anchors(top: timeOnlineLabel.topAnchor, topPad: 0, bottom: nil, bottomPad: 3, left: timeOnlineLabel.rightAnchor, leftPad: 0, right: dashBackground.rightAnchor, rightPad: 0, height: 0, width: 0)
+        
+        dashBackground.addSubview(onlineButton)
+        onlineButton.anchors(top: nil, topPad: 0, bottom: dashBackground.bottomAnchor, bottomPad: 7, left: timeOnlineLabel.rightAnchor, leftPad: uiWidth * 1/6, right: dashBackground.rightAnchor, rightPad: uiWidth * 1/16, height: uiWidth * 1/8, width: uiWidth * 1/8)
+        onlineButton.centerXAnchor.constraint(equalTo: goOnlineLabel.centerXAnchor).isActive = true
     }
 //end of the dash header
+    
+//beginning of stuff for status message
+    
+    let statusMessageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Status Message"
+        label.font = UIFont(name: "GillSans", size: 14)
+        label.textColor = .gray
+        return label
+    }()
+    
+    
+    let statusMessage: UITextField = {
+        let field = UITextField()
+        field.text = "Placeholder"
+        field.textColor = .gray
+        return field
+    }()
+    
+    func changeLabel(labelText: String) {
+        statusMessage.text = labelText
+    }
+    
+    
+//end of stuff for status message
+    
+    
+    
     
     let historyCard: UIView = {
         let card = UIView()
@@ -221,9 +310,11 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     let historyJobTitleArray = ["Lawn Care", "Dog Walk", "House Cleaning", "Dog Walk", "Party Cleanup"]
     let historyDateStampArray = ["March 3rd, 2019", "March 13th, 2019", "March 13th, 2019", "April 8th, 2019", "April 14th, 2019"]
     let historyTimeStampArray = ["3:14 PM", "11:00 AM", "12:30 PM", "12:55 PM", "4:35 PM"]
-    let historyEarningsArray = ["$9.39", "$11.27", "$7.51", "$15.03", "$7.51"]
     
     let historyArray = ["","","","",""]
+    
+    let latitudeArray = [37.3327,87.2077,55.3377,27.3320,34.3347]
+    let longitudeArray = [-122.2962,122.5362,-42.8962,-3.1302,-16.0093]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyArray.count
@@ -272,6 +363,62 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
                 return label
             }()
             
+            //################################# YOU ARE NOW ENTERING THE DANGER ZONE #################################
+            //map snapshot items
+            //I HAVE ABSOLUTELY NO FUCKING CLUE WHAT THIS DOES BUT SOMEHOW IT WORKS -- CHRIS
+            var _snapShotOptions: MKMapSnapshotter.Options = MKMapSnapshotter.Options()
+            var _snapShot: MKMapSnapshotter!
+            var center: CLLocationCoordinate2D!
+            
+            var mySpan: MKCoordinateSpan!
+            var myRegion: MKCoordinateRegion!
+            
+            // Generate mapView
+            var _mapView: MKMapView = {
+                let mv = MKMapView(frame: self.view.frame)
+                
+                center = CLLocationCoordinate2DMake(latitudeArray[indexPath.row], longitudeArray[indexPath.row])
+                
+                mv.centerCoordinate = center
+                
+                // Set the center point in MapView.
+                mv.setCenter(center, animated: true)
+                
+                // Specify the scale (display area).
+                mySpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+                myRegion = MKCoordinateRegion(center: center, span: mySpan)
+                
+                // Added region to MapView.
+                mv.region = myRegion
+                
+                return mv
+            }()
+            
+            func loadMapStuff(host: UITableViewCell) { //loads map into the cell -- incredibly important
+                
+                // Do any additional setup after loading the view.
+                
+                // Add mapView on view
+                host.addSubview(_mapView)
+                _mapView.anchors(top: host.topAnchor, topPad: 0, bottom: host.bottomAnchor, bottomPad: 0, left: host.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: historyCard.frame.size.height * 2/15, width: historyCard.frame.size.height * 2/15)
+                _mapView.subviews[1].removeFromSuperview()
+                
+                // Add button on view
+                //self.view.addSubview(_button)
+                
+                // MKMapSnapShotOptions setting.
+                _snapShotOptions.region = myRegion
+                _snapShotOptions.size = _mapView.frame.size
+                _snapShotOptions.scale = UIScreen.main.scale
+                
+                // Set MKMapSnapShotOptions to MKMapSnapShotter.
+                _snapShot = MKMapSnapshotter(options: _snapShotOptions)
+            }
+            
+            //end map snapshot items
+            //################################# YOU ARE NOW LEAVING THE DANGER ZONE #################################
+            
+            
             bgColorView.backgroundColor = ORANGE_ACCENT
             
             cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
@@ -292,25 +439,22 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
             historyCellCard.layer.masksToBounds = true
             historyCellCard.anchors(top: cell?.topAnchor, topPad: 0, bottom: cell?.bottomAnchor, bottomPad: 0, left: cell?.leftAnchor, leftPad: 0, right: cell?.rightAnchor, rightPad: 0, height: 0, width: 0)
             
+            loadMapStuff(host: cell!)
             
             historyCellCard.addSubview(historyJobTitleLabel)
             historyJobTitleLabel.text = historyJobTitleArray[indexPath.row]
-            historyJobTitleLabel.anchors(top: historyCellCard.topAnchor, topPad: (cell?.frame.size.height)! * 1/5, bottom: nil, bottomPad: 0, left: historyCellCard.leftAnchor, leftPad: historyCard.frame.size.height * 2/15, right: nil, rightPad: 0, height: 0, width: 0)
+            historyJobTitleLabel.anchors(top: historyCellCard.topAnchor, topPad: (cell?.frame.size.height)! * 1/5, bottom: nil, bottomPad: 0, left: _mapView.rightAnchor, leftPad: 10, right: nil, rightPad: 0, height: 0, width: 0)
             
             historyCellCard.addSubview(historyDateStampLabel)
             historyDateStampLabel.text = "\(historyDateStampArray[indexPath.row]) \(historyTimeStampArray[indexPath.row])"
             historyDateStampLabel.anchors(top: historyJobTitleLabel.bottomAnchor, topPad: 3, bottom: nil, bottomPad: 0, left: historyJobTitleLabel.leftAnchor, leftPad: 0, right: nil, rightPad: 0, height: 0, width: 0)
             
             historyCellCard.addSubview(historyEarningsLabel)
-            historyEarningsLabel.text = historyEarningsArray[indexPath.row]
+            historyEarningsLabel.text = "$\(historyEarningsArray[indexPath.row])"
             historyEarningsLabel.anchors(top: historyCellCard.topAnchor, topPad: 0, bottom: historyCellCard.bottomAnchor, bottomPad: 0, left: nil, leftPad: 0, right: historyCellCard.rightAnchor, rightPad: 10, height: 0, width: (cell?.frame.size.width)! * 1/5)
             
             
-            //historyCellCard.addSubview(mapSnapshot)
-            
-            
             //end of building history uiview
-        
         
         
         }
@@ -332,7 +476,7 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     
     fileprivate func placeHistoryCard() {
         view.addSubview(historyCard)
-        historyCard.anchors(top: dashBackground.bottomAnchor, topPad: uiHeight * 1/8, bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomPad: 0, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: uiWidth * 1/16, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: uiWidth * 1/16, height: 0, width: 0)
+        historyCard.anchors(top: dashBackground.bottomAnchor, topPad: uiHeight * 1/20, bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomPad: UIScreen.main.bounds.height * 1/10, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: uiWidth * 1/16, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: uiWidth * 1/16, height: 0, width: 0)
 
         historyCard.addSubview(historyLabel)
         historyLabel.anchors(top: historyCard.topAnchor, topPad: 10, bottom: nil, bottomPad: 0, left: historyCard.leftAnchor, leftPad: uiWidth * 1/32, right: nil, rightPad: 0, height: 0, width: 0)
@@ -343,5 +487,51 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         loadTableData()
         
     }
+    
+    fileprivate func placeStatusLabel () {
+        view.addSubview(statusMessageLabel)
+        statusMessageLabel.anchors(top: dashBackground.bottomAnchor, topPad: 10, bottom: nil, bottomPad: 0, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: 10, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: 10, height: uiHeight * 1/16, width: 0)
+    }
+    
+    func setActiveMessage(activeMessage: String) {
+        statusMessageLabel.text = activeMessage
+        print("went off")
+    }
+    
+    
+//create job notification alert
+    
+    
+    fileprivate func showAlert() {
+        // Initialize Alert Controller
+        let alertController = UIAlertController(title: "Dog Walking", message: "1900 Commerce St, Tacoma, WA", preferredStyle: .alert)
+        
+        // Initialize Actions
+        let yesAction = UIAlertAction(title: "Accept", style: .default) { (action) -> Void in
+            self.navigationController?.pushViewController(JobController(), animated: true)
+        }
+        
+        let noAction = UIAlertAction(title: "Back", style: .default) { (action) -> Void in
+            self.alertPresented = false
+        }
+        
+        // Add Actions
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        // Present Alert Controller
+        
+        let randInt = Int.random(in: 0 ... 5)
+        
+        if randInt == 5 && alertPresented == false {
+            alertPresented = true
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+
+        self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    
+//end of job notification alert
     
 }

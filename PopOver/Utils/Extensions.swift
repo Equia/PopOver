@@ -104,3 +104,28 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+class Alert: UIAlertController {
+    var isPresented = false
+    
+    func dismissAlert(animated flag: Bool, completion: (() -> Void)? = nil) {
+        self.dismiss(animated: true, completion: nil)
+        self.isPresented = false
+        print("worked")
+    }
+    
+    func pushNewViewController() {
+        //self.dismiss(animated: false, completion: nil)
+        self.navigationController?.pushViewController(GoOnlineController(), animated: true)
+    }
+}
+
+extension UIViewController {
+    @objc func pushJobInformationController() {
+        navigationController?.pushViewController(GoOnlineController(), animated: true)
+    }
+}
+
+class UITaskButton: UIButton {
+    
+}

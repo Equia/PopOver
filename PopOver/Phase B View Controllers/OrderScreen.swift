@@ -30,7 +30,7 @@ class OrderScreen: UIViewController {
         let gradient = CAGradientLayer()
         
         gradient.frame = view.bounds
-        gradient.colors = [BLUE_GRADIENT1.cgColor, BLUE_GRADIENT2.cgColor]
+        gradient.colors = [ORANGE_THEME.cgColor, ORANGE_GRADIENT_ACCENT.cgColor]
         gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
         
@@ -113,7 +113,7 @@ class OrderScreen: UIViewController {
     let addressLabel2: UILabel = {
         let label = UILabel()
         label.text = "This displays the address to work at"
-        label.font = UIFont(name:"HelveticaNeue", size: 16)
+        label.font = UIFont(name:"HelveticaNeue", size: 12)
         label.textColor = .lightGray
         label.numberOfLines = 0
         return label
@@ -149,7 +149,7 @@ class OrderScreen: UIViewController {
     
     let min5Button: UIButton = {
         let button = UIButton()
-        button.setTitle("5m", for: .normal)
+        button.setTitle("15m", for: .normal)
         button.backgroundColor = .white
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
@@ -161,7 +161,7 @@ class OrderScreen: UIViewController {
     
     let min15Button: UIButton = {
         let button = UIButton()
-        button.setTitle("15m", for: .normal)
+        button.setTitle("30m", for: .normal)
         button.backgroundColor = .white
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
@@ -173,7 +173,7 @@ class OrderScreen: UIViewController {
     
     let min30Button: UIButton = {
         let button = UIButton()
-        button.setTitle("30m", for: .normal)
+        button.setTitle("45m", for: .normal)
         button.backgroundColor = UIColor(displayP3Red: 135/255, green: 176/255, blue: 242/255, alpha: 1)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
@@ -198,7 +198,7 @@ class OrderScreen: UIViewController {
     
     let hr2Button: UIButton = {
         let button = UIButton()
-        button.setTitle("2h", for: .normal)
+        button.setTitle("90m", for: .normal)
         button.backgroundColor = .white
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
@@ -227,7 +227,7 @@ class OrderScreen: UIViewController {
     let baseCostLabel: UILabel = {
         let label = UILabel()
         label.text = "Task cost estimate"
-        label.font = UIFont(name:"HelveticaNeue", size: 18)
+        label.font = UIFont(name:"HelveticaNeue", size: 14)
         label.textColor = .gray
         label.numberOfLines = 0
         return label
@@ -236,7 +236,7 @@ class OrderScreen: UIViewController {
     let durationlabel: UILabel = {
         let label = UILabel()
         label.text = "Time estimate (hours)"
-        label.font = UIFont(name:"HelveticaNeue", size: 18)
+        label.font = UIFont(name:"HelveticaNeue", size: 14)
         label.textColor = .gray
         label.numberOfLines = 0
         return label
@@ -245,7 +245,7 @@ class OrderScreen: UIViewController {
     let taxLabel: UILabel = {
         let label = UILabel()
         label.text = "Tax"
-        label.font = UIFont(name:"HelveticaNeue", size: 18)
+        label.font = UIFont(name:"HelveticaNeue", size: 14)
         label.textColor = .gray
         label.numberOfLines = 0
         return label
@@ -263,7 +263,7 @@ class OrderScreen: UIViewController {
     let taskCost: UITextView = {
         let labelText = UITextView()
         labelText.textColor = .gray
-        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 18)
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         labelText.text = "$10.00"
         labelText.textAlignment = .right
         labelText.isEditable = false
@@ -274,7 +274,7 @@ class OrderScreen: UIViewController {
     let durationConfirm: UITextView = {
         let labelText = UITextView()
         labelText.textColor = .gray
-        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 18)
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         labelText.text = "0.5"
         labelText.isEditable = false
         labelText.textAlignment = .right
@@ -286,7 +286,7 @@ class OrderScreen: UIViewController {
     let taxCost: UITextView = {
         let labelText = UITextView()
         labelText.textColor = .gray
-        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 18)
+        labelText.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         labelText.text = "$1.01"
         labelText.isEditable = false
         labelText.textAlignment = .right
@@ -314,14 +314,14 @@ class OrderScreen: UIViewController {
         let gradient = CAGradientLayer()
         
         gradient.frame = button.bounds
-        gradient.colors = [PURPLE_GRADIENT1.cgColor, PURPLE_GRADIENT2.cgColor]
+        gradient.colors = [ORANGE_THEME.cgColor, ORANGE_GRADIENT_ACCENT.cgColor]
         gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.cornerRadius = UIScreen.main.bounds.height * 1/32
         
         button.layer.insertSublayer(gradient, at: 0)
         
-        button.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
+        button.addTarget(self, action: #selector(jobComplete), for: .touchUpInside)
         return button
     }()
     
@@ -502,23 +502,23 @@ class OrderScreen: UIViewController {
         sender.backgroundColor = UIColor(displayP3Red: 135/255, green: 176/255, blue: 242/255, alpha: 1)
         
         if sender == min5Button {
-            timeText.text = "~5 min to complete"
-            taskCost.text = "$7.50"
-            taxCost.text = "$0.76"
-            totalCost.text = "$8.26"
-            durationConfirm.text = "0.08"
-        } else if sender == min15Button {
             timeText.text = "~15 min to complete"
             taskCost.text = "$7.50"
             taxCost.text = "$0.76"
             totalCost.text = "$8.26"
             durationConfirm.text = "0.25"
-        } else if sender == min30Button {
+        } else if sender == min15Button {
             timeText.text = "~30 min to complete"
             taskCost.text = "$10.00"
-            taxCost.text = "$1.01"
-            totalCost.text = "$11.01"
+            taxCost.text = "$1.02"
+            totalCost.text = "$10.02"
             durationConfirm.text = "0.5"
+        } else if sender == min30Button {
+            timeText.text = "~45 min to complete"
+            taskCost.text = "$12.50"
+            taxCost.text = "$1.28"
+            totalCost.text = "$13.78"
+            durationConfirm.text = "0.75"
         } else if sender == hr1Button {
             timeText.text = "~1 hour to complete"
             taskCost.text = "$15.00"
@@ -526,11 +526,11 @@ class OrderScreen: UIViewController {
             totalCost.text = "$16.52"
             durationConfirm.text = "1.0"
         } else if sender == hr2Button {
-            timeText.text = "~2 hours to complete"
-            taskCost.text = "$25.00"
-            taxCost.text = "2.52"
-            totalCost.text = "$27.52"
-            durationConfirm.text = "2.0"
+            timeText.text = "~90 minutes to complete"
+            taskCost.text = "$20.00"
+            taxCost.text = "2.04"
+            totalCost.text = "$22.04"
+            durationConfirm.text = "1.5"
         }
     }
     
@@ -548,25 +548,23 @@ class OrderScreen: UIViewController {
     }
     
 //confirmation alert
-    let noJobAlert: UIAlertController = {
-        let alert = UIAlertController(title: "Success! \n Order #5882 Received", message: "A PopOver worker is on \n their way to you as you read this. In the mean time, why not kick back and relax? We got this.", preferredStyle: .alert)
-        //alert.addAction(UIAlertAction(title: "Back to home", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil) }))
+    @objc func jobComplete() {
+        // Initialize Alert Controller
         
-        alert.addAction(UIAlertAction(title: "Back to home", style: UIAlertAction.Style.default, handler: { (action) in
-            
-            // go back to the login view controller
-            // go back through the navigation controller
-            
-            let vc = HomeScreenController()
-            alert.present(vc, animated: false, completion: nil)
-            
-            
-        }))
-        return alert
-    }()
-    
-    @objc func createAlert() {
-        self.present(noJobAlert, animated: true)
+        let randInt = Int.random(in: 1000...9999)
         
+        let intString = String(randInt)
+        
+        let alertController = UIAlertController(title: "Success! \n Order #\(intString) Received", message: "A PopOver worker is on \n their way to you as you read this. In the mean time, why not kick back and relax? We got this.", preferredStyle: .alert)
+        // Initialize Actions
+        let yesAction = UIAlertAction(title: "Back to navigator", style: .default) { (action) -> Void in
+            self.navigationController?.pushViewController(PresentationNavigator(), animated: false)
+        }
+        
+        // Add Actions
+        alertController.addAction(yesAction)
+        
+        // Present Alert Controller
+        self.present(alertController, animated: true, completion: nil)
     }
 }

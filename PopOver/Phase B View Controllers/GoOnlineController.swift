@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
-class ActiveJobController3: UIViewController{
+protocol sendActiveMessageDelegate {
+    
+    func setActiveMessage(activeMessage: String)
+    
+}
+
+class GoOnlineController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +30,7 @@ class ActiveJobController3: UIViewController{
         super.didReceiveMemoryWarning()
     }
     
-    var testText = "OOGABOOGA"
+    var messageDelegate:sendActiveMessageDelegate?
     
     var activeTaskCount = 0
     
@@ -60,7 +66,8 @@ class ActiveJobController3: UIViewController{
     }()
     
     @objc func backToHome() {
-        navigationController?.pushViewController(HomeScreenController(),animated: false)
+        navigationController?.popViewController(animated: true)
+        //navigationController?.pushViewController(Dashboard(),animated: false)
     }
     
     fileprivate func buildBanner() {
@@ -136,7 +143,7 @@ class ActiveJobController3: UIViewController{
         button.backgroundColor = ORANGE_ACCENT
         //button.layer.borderColor = ORANGE_THEME.cgColor
         //button.layer.borderWidth = 2
-        button.setTitle("Groceries", for: .normal)
+        button.setTitle("Pet Care", for: .normal)
         button.setTitleColor(ORANGE_THEME, for: .normal)
         button.titleLabel?.font = UIFont(name: "GillSans", size: 16)
         button.layer.cornerRadius = 5
@@ -243,9 +250,7 @@ class ActiveJobController3: UIViewController{
     }
     
     @objc func passActiveJobs() {
-        let vc = OrderScreen()
-        vc.orderText = testText
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.popViewController(animated: false)
     }
     
     fileprivate func buildJobCard() {
@@ -309,7 +314,7 @@ class ActiveJobController3: UIViewController{
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/128
         button.layer.borderWidth = 2
         button.layer.borderColor = ORANGE_THEME.cgColor
-        button.addTarget(self, action: #selector(passActiveJobs), for: .touchUpInside)
+        button.addTarget(self, action: #selector(backToDash), for: .touchUpInside) //testing with this 
         return button
     }()
     
@@ -331,8 +336,8 @@ class ActiveJobController3: UIViewController{
     let slider: CustomSlider = {
         let slider = CustomSlider()
         slider.minimumValue = 1
-        slider.maximumValue = 20
-        slider.setValue(10, animated: false)
+        slider.maximumValue = 12
+        slider.setValue(2, animated: false)
         slider.minimumTrackTintColor = ORANGE_THEME
         slider.thumbTintColor = ORANGE_THEME
         slider.isContinuous = true
@@ -371,7 +376,7 @@ class ActiveJobController3: UIViewController{
     let sliderNumber: UILabel = {
         let label = UILabel()
         label.font = UIFont(name:"GillSans-Bold", size: 24)
-        label.text = "~15 mins"
+        label.text = "~30 mins"
         label.textAlignment = .center
         return label
     }()
@@ -379,7 +384,7 @@ class ActiveJobController3: UIViewController{
     @objc func changeSliderNumber(sender: UISlider) {
         let sliderValue = Int(round(slider.value))
         slider.value = roundf(slider.value)
-        sliderNumber.text = "~\(sliderValue) mins"
+        sliderNumber.text = "~\(sliderValue * 15) mins"
     }
     
     fileprivate func buildTimeCard() {
@@ -413,13 +418,23 @@ class ActiveJobController3: UIViewController{
         self.present(noJobAlert, animated: true)
     }
     
-    @objc func toOrderScreen(sender: UIButton) {
+    @objc func backToDash(sender: UIButton) {
+        let vc = Dashboard()
+        //messageDelegate?.setActiveMessage(activeMessage: statusField.text!)
+        //self.present(vc, animated: false)
+        
         if activeTaskCount > 0 {
-            navigationController?.pushViewController(OrderScreen(),animated: false)
+            messageDelegate?.setActiveMessage(activeMessage: statusField.text!)
+            self.navigationController?.pushViewController(vc, animated: false)
+            print(statusField.text!)
+            print("works")
+            //navigationController?.pushViewController(vc,animated: false)
         } else if activeTaskCount == 0 {
+            print("doesn't work")
             createAlert()
         }
     }
+    
 }
 
 class CustomSlider: UISlider {

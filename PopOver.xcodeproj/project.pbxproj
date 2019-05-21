@@ -16,6 +16,8 @@
 		413600F5224FEC3800AB4983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413600F3224FEC3800AB4983 /* Main.storyboard */; };
 		413600F7224FEC3A00AB4983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413600F6224FEC3A00AB4983 /* Assets.xcassets */; };
 		413600FA224FEC3A00AB4983 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413600F8224FEC3A00AB4983 /* LaunchScreen.storyboard */; };
+		414A64CA228BED610063E4AA /* JobPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A64C9228BED610063E4AA /* JobPopover.swift */; };
+		414A64CC228D346E0063E4AA /* PresentationNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A64CB228D346D0063E4AA /* PresentationNavigator.swift */; };
 		415D37022256CBCB003AFDC7 /* EmailSentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D37012256CBCB003AFDC7 /* EmailSentController.swift */; };
 		417255AA2253E96B00DCE131 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417255A92253E96B00DCE131 /* Constants.swift */; };
 		417255AD22540E4500DCE131 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417255AC22540E4500DCE131 /* Extensions.swift */; };
@@ -29,7 +31,7 @@
 		41CFDDCE2259C85F00AA7FC0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CFDDCD2259C85F00AA7FC0 /* MapKit.framework */; };
 		41CFDDD4225A5B0B00AA7FC0 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFDDD3225A5B0B00AA7FC0 /* NotificationsController.swift */; };
 		41D70D8F2277A4E200C13E29 /* ActiveJobController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D70D8E2277A4E200C13E29 /* ActiveJobController2.swift */; };
-		41EA3E3B227F6132006791A3 /* ActiveViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3E3A227F6132006791A3 /* ActiveViewController3.swift */; };
+		41EA3E3B227F6132006791A3 /* GoOnlineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3E3A227F6132006791A3 /* GoOnlineController.swift */; };
 		41FE42A7225E68CB003C804B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE42A6225E68CB003C804B /* SettingsController.swift */; };
 		D1D17EBBDC8F49584F3E7FC9 /* Pods_PopOver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F727FF4512DE52FD9DDFB25 /* Pods_PopOver.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +49,8 @@
 		413600F6224FEC3A00AB4983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413600F9224FEC3A00AB4983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413600FB224FEC3A00AB4983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		414A64C9228BED610063E4AA /* JobPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPopover.swift; sourceTree = "<group>"; };
+		414A64CB228D346D0063E4AA /* PresentationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationNavigator.swift; sourceTree = "<group>"; };
 		415D37012256CBCB003AFDC7 /* EmailSentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSentController.swift; sourceTree = "<group>"; };
 		417255A92253E96B00DCE131 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		417255AC22540E4500DCE131 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -61,7 +65,7 @@
 		41CFDDCF2259C87800AA7FC0 /* PopOver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PopOver.entitlements; sourceTree = "<group>"; };
 		41CFDDD3225A5B0B00AA7FC0 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		41D70D8E2277A4E200C13E29 /* ActiveJobController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveJobController2.swift; sourceTree = "<group>"; };
-		41EA3E3A227F6132006791A3 /* ActiveViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveViewController3.swift; sourceTree = "<group>"; };
+		41EA3E3A227F6132006791A3 /* GoOnlineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoOnlineController.swift; sourceTree = "<group>"; };
 		41FE42A6225E68CB003C804B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		8811866F7B1A31DD254111ED /* Pods-PopOver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopOver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopOver/Pods-PopOver.debug.xcconfig"; sourceTree = "<group>"; };
 		8BCF751D70AD5C8B7CD079D4 /* Pods-PopOver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopOver.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopOver/Pods-PopOver.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,8 +139,10 @@
 				4101E0952274534E0060AC6D /* NavigationScreen.swift */,
 				4101E0972274580D0060AC6D /* CustomerJobPicker.swift */,
 				41D70D8E2277A4E200C13E29 /* ActiveJobController2.swift */,
-				41EA3E3A227F6132006791A3 /* ActiveViewController3.swift */,
+				41EA3E3A227F6132006791A3 /* GoOnlineController.swift */,
 				41B4D2A62282060E007AD5D3 /* Dashboard.swift */,
+				414A64C9228BED610063E4AA /* JobPopover.swift */,
+				414A64CB228D346D0063E4AA /* PresentationNavigator.swift */,
 			);
 			path = "Phase B View Controllers";
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 				41FE42A7225E68CB003C804B /* SettingsController.swift in Sources */,
 				41A5B4B62272CDE200586ADF /* OrderScreen.swift in Sources */,
 				417E953B22557ADE00337000 /* SignUpController.swift in Sources */,
+				414A64CC228D346E0063E4AA /* PresentationNavigator.swift in Sources */,
 				41CFDDD4225A5B0B00AA7FC0 /* NotificationsController.swift in Sources */,
 				417E953D2255A05F00337000 /* ForgotPasswordController.swift in Sources */,
 				41D70D8F2277A4E200C13E29 /* ActiveJobController2.swift in Sources */,
@@ -303,8 +310,9 @@
 				417255AA2253E96B00DCE131 /* Constants.swift in Sources */,
 				411F9D6F225BE16200BBDD26 /* TutorialPanels.swift in Sources */,
 				413600F2224FEC3700AB4983 /* LoginController.swift in Sources */,
-				41EA3E3B227F6132006791A3 /* ActiveViewController3.swift in Sources */,
+				41EA3E3B227F6132006791A3 /* GoOnlineController.swift in Sources */,
 				411F9D71225BF45300BBDD26 /* Tutorial-Scroller.swift in Sources */,
+				414A64CA228BED610063E4AA /* JobPopover.swift in Sources */,
 				41989DCF226FF68D00CD2BD8 /* ActiveJobController.swift in Sources */,
 				413600F0224FEC3700AB4983 /* AppDelegate.swift in Sources */,
 				417255AD22540E4500DCE131 /* Extensions.swift in Sources */,
@@ -455,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PopOver/PopOver.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y858BFGABL;
 				INFOPLIST_FILE = PopOver/Info.plist;
@@ -462,10 +471,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.PopOver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.testapp.popover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -475,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PopOver/PopOver.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y858BFGABL;
 				INFOPLIST_FILE = PopOver/Info.plist;
@@ -482,10 +493,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.PopOver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.testapp.popover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
     
-        let controller = UINavigationController(rootViewController: Dashboard()) //sets ViewController on load
+        let controller = UINavigationController(rootViewController: PresentationNavigator()) //sets ViewController on load
         window?.rootViewController = controller
         
         locationManager.requestAlwaysAuthorization()

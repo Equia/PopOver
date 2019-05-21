@@ -34,7 +34,7 @@ class CustomerJobPicker: UIViewController {
         let gradient = CAGradientLayer()
         
         gradient.frame = view.bounds
-        gradient.colors = [ORANGE_GRADIENT2.cgColor, ORANGE_GRADIENT1.cgColor]
+        gradient.colors = [ORANGE_THEME.cgColor, ORANGE_GRADIENT_ACCENT.cgColor]
         gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
         
@@ -75,8 +75,8 @@ class CustomerJobPicker: UIViewController {
     //let jobText = UITextView()
     let jobText = UILabel()
     
-    let trashButton: UIButton = {
-        let button = UIButton()
+    let trashButton1: UITaskButton = {
+        let button = UITaskButton()
         let gradient = CAGradientLayer()
         
         button.backgroundColor = .white
@@ -85,7 +85,7 @@ class CustomerJobPicker: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderColor = ORANGE_THEME.cgColor
         button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_trash"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/18,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/18)
@@ -93,8 +93,8 @@ class CustomerJobPicker: UIViewController {
         return button
     }()
     
-    let cleaningButton: UIButton = {
-        let button = UIButton()
+    let cleaningButton1: UITaskButton = {
+        let button = UITaskButton()
         let gradient = CAGradientLayer()
         
         button.backgroundColor = .white
@@ -103,7 +103,7 @@ class CustomerJobPicker: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderColor = ORANGE_THEME.cgColor
         button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_housekeeper"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/16,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/16)
@@ -111,8 +111,8 @@ class CustomerJobPicker: UIViewController {
         return button
     }()
     
-    let movingButton: UIButton = {
-        let button = UIButton()
+    let movingButton1: UITaskButton = {
+        let button = UITaskButton()
         let gradient = CAGradientLayer()
         
         button.backgroundColor = .white
@@ -121,7 +121,7 @@ class CustomerJobPicker: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderColor = ORANGE_THEME.cgColor
         button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_house"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
@@ -129,8 +129,8 @@ class CustomerJobPicker: UIViewController {
         return button
     }()
     
-    let plantCareButton: UIButton = {
-        let button = UIButton()
+    let plantCareButton1: UITaskButton = {
+        let button = UITaskButton()
         let gradient = CAGradientLayer()
         
         button.backgroundColor = .white
@@ -139,7 +139,7 @@ class CustomerJobPicker: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderColor = ORANGE_THEME.cgColor
         button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_plant"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
@@ -147,8 +147,8 @@ class CustomerJobPicker: UIViewController {
         return button
     }()
     
-    let organizeButton: UIButton = {
-        let button = UIButton()
+    let organizeButton1: UITaskButton = {
+        let button = UITaskButton()
         let gradient = CAGradientLayer()
         
         button.backgroundColor = .white
@@ -157,7 +157,7 @@ class CustomerJobPicker: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderColor = ORANGE_THEME.cgColor
         button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_folder"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
@@ -165,8 +165,8 @@ class CustomerJobPicker: UIViewController {
         return button
     }()
     
-    let shoppingButton: UIButton = {
-        let button = UIButton()
+    let shoppingButton1: UITaskButton = {
+        let button = UITaskButton()
         let gradient = CAGradientLayer()
         
         button.backgroundColor = .white
@@ -175,7 +175,7 @@ class CustomerJobPicker: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/12
-        button.layer.borderColor = ORANGE_GRADIENT1.cgColor
+        button.layer.borderColor = ORANGE_THEME.cgColor
         button.layer.borderWidth = UIScreen.main.bounds.height * 1/120
         button.setImage(#imageLiteral(resourceName: "ic_shoppingcart"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: UIScreen.main.bounds.height * 1/20,left: UIScreen.main.bounds.height * 1/20,bottom: UIScreen.main.bounds.height * 1/20,right: UIScreen.main.bounds.height * 1/20)
@@ -185,10 +185,11 @@ class CustomerJobPicker: UIViewController {
     
     let confirmButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = ORANGE_GRADIENT1
+        button.backgroundColor = ORANGE_THEME
         button.setTitle("Confirm", for: .normal)
         button.layer.cornerRadius = UIScreen.main.bounds.height * 1/32
         button.addTarget(self, action: #selector(toOrderScreen), for: .touchUpInside)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         return button
     }()
     
@@ -252,75 +253,77 @@ class CustomerJobPicker: UIViewController {
     }
     
     fileprivate func buildTrashButton() {
-        view.addSubview(trashButton)
-        trashButton.anchors(top: backgroundPlate.topAnchor, topPad: UIScreen.main.bounds.height * 1/72
+        view.addSubview(trashButton1)
+        trashButton1.anchors(top: backgroundPlate.topAnchor, topPad: UIScreen.main.bounds.height * 1/72
             , bottom: nil, bottomPad: 0, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: UIScreen.main.bounds.width * 1/10
             , right: nil, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
     }
     
     fileprivate func buildCleaningButton() {
-        view.addSubview(cleaningButton)
-        cleaningButton.anchors(top: backgroundPlate.topAnchor, topPad: UIScreen.main.bounds.height * 1/72
+        view.addSubview(cleaningButton1)
+        cleaningButton1.anchors(top: backgroundPlate.topAnchor, topPad: UIScreen.main.bounds.height * 1/72
             , bottom: nil, bottomPad: 0, left: nil, leftPad: 0
             , right: view.safeAreaLayoutGuide.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/10, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
     }
     
     fileprivate func buildMovingButton() {
-        view.addSubview(movingButton)
-        movingButton.anchors(top: trashButton.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
-            , bottom: nil, bottomPad: 0, left: trashButton.leftAnchor, leftPad: 0
-            , right: trashButton.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
+        view.addSubview(movingButton1)
+        movingButton1.anchors(top: trashButton1.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
+            , bottom: nil, bottomPad: 0, left: trashButton1.leftAnchor, leftPad: 0
+            , right: trashButton1.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
     }
     
     fileprivate func buildPlantCareButton() {
-        view.addSubview(plantCareButton)
-        plantCareButton.anchors(top: cleaningButton.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
-            , bottom: nil, bottomPad: 0, left: cleaningButton.leftAnchor, leftPad: 0
-            , right: cleaningButton.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
+        view.addSubview(plantCareButton1)
+        plantCareButton1.anchors(top: cleaningButton1.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
+            , bottom: nil, bottomPad: 0, left: cleaningButton1.leftAnchor, leftPad: 0
+            , right: cleaningButton1.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
     }
     
     fileprivate func buildOrganizeButton() {
-        view.addSubview(organizeButton)
-        organizeButton.anchors(top: movingButton.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
-            , bottom: nil, bottomPad: 0, left: movingButton.leftAnchor, leftPad: 0
-            , right: movingButton.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
+        view.addSubview(organizeButton1)
+        organizeButton1.anchors(top: movingButton1.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
+            , bottom: nil, bottomPad: 0, left: movingButton1.leftAnchor, leftPad: 0
+            , right: movingButton1.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
     }
     
     fileprivate func buildShoppingButton() {
-        view.addSubview(shoppingButton)
-        shoppingButton.anchors(top: plantCareButton.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
-            , bottom: nil, bottomPad: 0, left: plantCareButton.leftAnchor, leftPad: 0
-            , right: plantCareButton.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
+        view.addSubview(shoppingButton1)
+        shoppingButton1.anchors(top: plantCareButton1.bottomAnchor, topPad: UIScreen.main.bounds.height * 1/24
+            , bottom: nil, bottomPad: 0, left: plantCareButton1.leftAnchor, leftPad: 0
+            , right: plantCareButton1.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/6, width: UIScreen.main.bounds.height * 1/6)
     }
     
     fileprivate func buildBottomBanner() {
         view.addSubview(taskCountBanner)
         taskCountBanner.anchors(top: nil, topPad: 0, bottom: backgroundPlate.bottomAnchor, bottomPad: 0, left: backgroundPlate.leftAnchor, leftPad: 0, right: backgroundPlate.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/10, width: 0)
         
+        /*
         view.addSubview(jobText)
         jobText.anchors(top: taskCountBanner.topAnchor, topPad: 0, bottom: taskCountBanner.bottomAnchor, bottomPad: 0, left: taskCountBanner.leftAnchor, leftPad: UIScreen.main.bounds.width * 1/20, right: taskCountBanner.rightAnchor, rightPad: UIScreen.main.bounds.width * 1/2, height: 0, width: 0)
         jobText.text = "\(activeTaskCount) jobs selected."
         jobText.textColor = .darkGray
         jobText.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
         jobText.textAlignment = .center
+         */
     }
     
     fileprivate func loadConfirmButton() {
         view.addSubview(confirmButton)
-        confirmButton.anchors(top: taskCountBanner.topAnchor, topPad: UIScreen.main.bounds.height * 1/40, bottom: taskCountBanner.bottomAnchor, bottomPad: UIScreen.main.bounds.height * 1/40, left: shoppingButton.leftAnchor, leftPad: 0, right: shoppingButton.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/16, width: 0)
+        confirmButton.anchors(top: taskCountBanner.topAnchor, topPad: UIScreen.main.bounds.height * 1/40, bottom: taskCountBanner.bottomAnchor, bottomPad: UIScreen.main.bounds.height * 1/40, left: organizeButton1.leftAnchor, leftPad: 0, right: shoppingButton1.rightAnchor, rightPad: 0, height: UIScreen.main.bounds.height * 1/16, width: 0)
     }
     
-    @objc func buttonTapped(sender: UIButton) {
+    @objc func buttonTapped(sender: UITaskButton) {
         if errorStatus == false {
             if sender.backgroundColor == .white {
-                sender.backgroundColor = ORANGE_GRADIENT1
+                sender.backgroundColor = ORANGE_THEME
                 activeTaskCount += 1
                 if activeTaskCount == 1 {
                     jobText.text = "\(activeTaskCount) job selected."
                 } else {
                     jobText.text = "\(activeTaskCount) jobs selected."
                 }
-            } else if sender.backgroundColor == ORANGE_GRADIENT1 {
+            } else if sender.backgroundColor == ORANGE_THEME {
                 sender.backgroundColor = .white
                 activeTaskCount -= 1
                 if activeTaskCount == 1 {
@@ -345,14 +348,14 @@ class CustomerJobPicker: UIViewController {
     }
     
     @objc func backToHome() {
-        navigationController?.pushViewController(HomeScreenController(),animated: false)
+        navigationController?.pushViewController(PresentationNavigator(),animated: false)
     }
     
     //LABELS FOR BUTTONS
     let trashLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         label.textAlignment = .center
         label.text = "Trash Help"
         return label
@@ -361,7 +364,7 @@ class CustomerJobPicker: UIViewController {
     let cleanUpLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         label.textAlignment = .center
         label.text = "Party Cleanup"
         return label
@@ -369,7 +372,7 @@ class CustomerJobPicker: UIViewController {
     let movingLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         label.textAlignment = .center
         label.text = "Moving Help"
         return label
@@ -378,7 +381,7 @@ class CustomerJobPicker: UIViewController {
     let plantLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         label.textAlignment = .center
         label.text = "Plant Care"
         return label
@@ -387,7 +390,7 @@ class CustomerJobPicker: UIViewController {
     let organizeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         label.textAlignment = .center
         label.text = "Organization"
         return label
@@ -396,7 +399,7 @@ class CustomerJobPicker: UIViewController {
     let shoppingLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 14)
         label.textAlignment = .center
         label.text = "Shop for me"
         return label
@@ -413,34 +416,35 @@ class CustomerJobPicker: UIViewController {
         
         let jeff = UIScreen.main.bounds.width * 1/70
         
-        trashLabel.anchors(top: trashButton.bottomAnchor, topPad: jeff, bottom: movingButton.topAnchor, bottomPad: jeff, left: trashButton.leftAnchor, leftPad: jeff, right: trashButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
+        trashLabel.anchors(top: trashButton1.bottomAnchor, topPad: jeff, bottom: movingButton1.topAnchor, bottomPad: jeff, left: trashButton1.leftAnchor, leftPad: jeff, right: trashButton1.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
-        cleanUpLabel.anchors(top: cleaningButton.bottomAnchor, topPad: jeff, bottom: plantCareButton.topAnchor, bottomPad: jeff, left: cleaningButton.leftAnchor, leftPad: jeff, right: cleaningButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
+        cleanUpLabel.anchors(top: cleaningButton1.bottomAnchor, topPad: jeff, bottom: plantCareButton1.topAnchor, bottomPad: jeff, left: cleaningButton1.leftAnchor, leftPad: jeff, right: cleaningButton1.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
-        movingLabel.anchors(top: movingButton.bottomAnchor, topPad: jeff, bottom: organizeButton.topAnchor, bottomPad: jeff, left: movingButton.leftAnchor, leftPad: jeff, right: movingButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
+        movingLabel.anchors(top: movingButton1.bottomAnchor, topPad: jeff, bottom: organizeButton1.topAnchor, bottomPad: jeff, left: movingButton1.leftAnchor, leftPad: jeff, right: movingButton1.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
-        plantLabel.anchors(top: plantCareButton.bottomAnchor, topPad: jeff, bottom: shoppingButton.topAnchor, bottomPad: jeff, left: plantCareButton.leftAnchor, leftPad: jeff, right: plantCareButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
+        plantLabel.anchors(top: plantCareButton1.bottomAnchor, topPad: jeff, bottom: shoppingButton1.topAnchor, bottomPad: jeff, left: plantCareButton1.leftAnchor, leftPad: jeff, right: plantCareButton1.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
-        organizeLabel.anchors(top: organizeButton.bottomAnchor, topPad: jeff, bottom: nil, bottomPad: 0, left: organizeButton.leftAnchor, leftPad: jeff, right: organizeButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
+        organizeLabel.anchors(top: organizeButton1.bottomAnchor, topPad: jeff, bottom: nil, bottomPad: 0, left: organizeButton1.leftAnchor, leftPad: jeff, right: organizeButton1.rightAnchor, rightPad: jeff, height: 0, width: 0)
         
-        shoppingLabel.anchors(top: shoppingButton.bottomAnchor, topPad: jeff, bottom: nil, bottomPad: 0, left: shoppingButton.leftAnchor, leftPad: jeff, right: shoppingButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
+        shoppingLabel.anchors(top: shoppingButton1.bottomAnchor, topPad: jeff, bottom: nil, bottomPad: 0, left: shoppingButton1.leftAnchor, leftPad: jeff, right: shoppingButton1.rightAnchor, rightPad: jeff, height: 0, width: 0)
     }
     
-    @objc func onClickButton(_ sender: UIButton) {
-        deselectAllButtons()
+    @objc func onClickButton(_ sender: UITaskButton) {
+        deselectAllButtons(_sender: self)
         sender.isSelected = true
         sender.setTitleColor(.blue, for: .normal)
-        sender.backgroundColor = ORANGE_GRADIENT1
+        sender.backgroundColor = ORANGE_THEME
+        activeTaskCount = 1
     }
-    func deselectAllButtons(){
+    func deselectAllButtons(_sender: Any){
         for subView in view.subviews
         {
             // Set all the other buttons as normal state
-            if let button = subView as? UIButton {
+            if let button = subView as? UITaskButton {
                 button.isSelected = false
                 
-                button.backgroundColor = .white
                 
+                button.backgroundColor = .white
             }
         }
     }

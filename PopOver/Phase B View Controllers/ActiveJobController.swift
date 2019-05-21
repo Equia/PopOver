@@ -411,7 +411,7 @@ class ActiveJobController: UIViewController {
         view.addSubview(organizeLabel)
         view.addSubview(shoppingLabel)
         
-        let jeff = UIScreen.main.bounds.width * 1/70
+        let jeff = UIScreen.main.bounds.width * 1/70 //random width pad thing
         
         trashLabel.anchors(top: trashButton.bottomAnchor, topPad: jeff, bottom: movingButton.topAnchor, bottomPad: jeff, left: trashButton.leftAnchor, leftPad: jeff, right: trashButton.rightAnchor, rightPad: jeff, height: 0, width: 0)
         

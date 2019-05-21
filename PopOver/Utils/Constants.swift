@@ -35,9 +35,11 @@ let ORANGE_GRADIENT1 = UIColor(displayP3Red: 237 / 255, green: 189 / 255, blue: 
 
 let ORANGE_GRADIENT2 = UIColor(displayP3Red: 244 / 255, green: 217 / 255, blue: 66 / 255, alpha: 1)
 
-let ORANGE_THEME = UIColor(displayP3Red: 255 / 255, green: 96 / 255, blue: 22 / 255, alpha: 1)
+let ORANGE_THEME = UIColor(displayP3Red: 255 / 255, green: 161 / 255, blue: 0 / 255, alpha: 1)
 
-let ORANGE_ACCENT = UIColor(displayP3Red: 255 / 255, green: 214 / 255, blue: 196 / 255, alpha: 1)
+let ORANGE_GRADIENT_ACCENT = UIColor(displayP3Red: 255 / 255, green: 195 / 255, blue: 0 / 255, alpha: 1)
+
+let ORANGE_ACCENT = UIColor(displayP3Red: 247 / 255, green: 230 / 255, blue: 200 / 255, alpha: 1)
 
 let SOFT_ORANGE = UIColor(displayP3Red: 249 / 255, green: 136 / 255, blue: 94 / 255, alpha: 1)
 
