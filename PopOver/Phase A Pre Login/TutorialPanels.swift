@@ -383,3 +383,5 @@ class TutorialTaskCompletion: UIViewController {
         textStack.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 0, bottom: view.safeAreaLayoutGuide.bottomAnchor, bottomPad: height * 1/4, left: view.safeAreaLayoutGuide.leftAnchor, leftPad: width * 1/16, right: view.safeAreaLayoutGuide.rightAnchor, rightPad: width * 1/16, height: 0, width: 0)
     }
 }
+
+
